@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rose Mary – Business Growth, B2B Sales and Strategic Partnerships professional. Explore my experience, projects and achievements.">
+<title>Rose Mary | Business Growth & Strategy</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --olive: #667653;
+  --dark: #222820;
+  --cream: #f7f6ef;
+  --muted: #77796f;
+  --line: #deded3;
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  margin-left: 22px;
+  font-size: 13px;
+}
+
+.hero {
+  padding: 110px 12% 100px;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.eyebrow {
+  color: var(--olive);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 8vw, 92px);
+  line-height: 1.05;
+  font-weight: 500;
+  max-width: 900px;
+  margin: 25px 0;
+}
+
+h1 span { color: var(--olive); }
+
+.hero p {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.buttons { margin-top: 35px; }
+
+.btn {
+  display: inline-block;
+  padding: 15px 23px;
+  margin: 5px 8px 5px 0;
+  text-decoration: none;
+  background: var(--olive);
+  color: white;
+  font-size: 13px;
+  border: 1px solid var(--olive);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--dark);
+  border-color: var(--line);
+}
+
+section {
+  padding: 85px 12%;
+  border-top: 1px solid var(--line);
+}
+
+.section-label {
+  color: var(--olive);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 53px);
+  font-weight: 500;
+  margin: 15px 0 35px;
+}
+
+.about-text {
+  max-width: 800px;
+  color: var(--muted);
+  line-height: 2;
+  font-size: 16px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 45px;
+}
+
+.stat {
+  border-top: 2px solid var(--olive);
+  padding-top: 18px;
+}
+
+.stat strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+}
+
+.stat p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.experience {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+}
+
+.experience h3 {
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+.meta {
+  color: var(--olive);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.experience ul {
+  color: var(--muted);
+  line-height: 2;
+  padding-left: 20px;
+}
+
+.projects, .achievements {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.project, .achievement {
+  padding: 25px;
+  background: #eeeee5;
+}
+
+.project h3, .achievement h3 { margin-top: 0; }
+
+.project p, .achievement p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.education-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.education-item p { color: var(--muted); }
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills span {
+  border: 1px solid var(--line);
+  padding: 11px 15px;
+  font-size: 13px;
+}
+
+.contact {
+  background: var(--dark);
+  color: white;
+}
+
+.contact h2 { max-width: 650px; }
+
+.contact p {
+  color: #c3c9bb;
+  line-height: 1.9;
+}
+
+.contact a { color: white; }
+
+footer {
+  padding: 25px 8%;
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+@media(max-width: 700px) {
+  nav { padding: 20px 6%; }
+  nav div:last-child { display: none; }
+  .hero { padding: 80px 7%; }
+  section { padding: 65px 7%; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .projects, .achievements { grid-template-columns: 1fr; }
+  footer { padding: 25px 7%; flex-direction: column; gap: 10px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">ROSE MARY.</div>
+  <div>
+    <a href="#about">ABOUT</a>
+    <a href="#experience">EXPERIENCE</a>
+    <a href="#work">WORK</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">BUSINESS GROWTH · B2B SALES · STRATEGY</div>
+  <h1>I turn opportunities into <span>meaningful growth.</span></h1>
+  <p>
+    I'm Rose Mary — a business growth and stakeholder management
+    professional interested in building relationships, exploring
+    markets and creating commercial opportunities.
+  </p>
+  <div class="buttons">
+    <a class="btn" href="#experience">EXPLORE MY JOURNEY ↗</a>
+    <a class="btn secondary" href="Rose_Mary_Resume.pdf" download>DOWNLOAD RESUME ↓</a>
+  </div>
+</header>
+
+<section id="about">
+  <div class="section-label">01 / ABOUT ME</div>
+  <h2>Curious by nature.<br>Commercially minded.</h2>
+  <p class="about-text">
+    My journey began in science and evolved into management.
+    With a postgraduate management education and experience across
+    business development, startup operations, sales enablement and
+    stakeholder coordination, I bring an analytical perspective
+    to business challenges.
+    <br><br>
+    I enjoy understanding how businesses work, identifying opportunities,
+    building professional relationships and turning ideas into action.
+    I'm particularly interested in technology-driven businesses,
+    AI solutions and strategic partnerships.
+  </p>
+
+  <div class="stats">
+    <div class="stat">
+      <strong>50%</strong>
+      <p>Cost reduction through vendor negotiations at MEI</p>
+    </div>
+    <div class="stat">
+      <strong>7th</strong>
+      <p>BSmart Case Study Competition – among 324</p>
+    </div>
+    <div class="stat">
+      <strong>6.91</strong>
+      <p>PGDM CGPA out of 8</p>
+    </div>
+    <div class="stat">
+      <strong>3</strong>
+      <p>Professional experience settings</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-label">02 / EXPERIENCE</div>
+  <h2>Where I've contributed.</h2>
+
+  <div class="experience">
+    <div class="meta">MAY 2026 – PRESENT</div>
+    <h3>General Management</h3>
+    <strong>Mediphore Systems and Technologies Pvt. Ltd.</strong>
+    <ul>
+      <li>Coordinate vendor sourcing, negotiations and supplier relationships.</li>
+      <li>Facilitate cross-border partner discussions and commercial coordination.</li>
+      <li>Prepare client presentations and business pitch decks.</li>
+      <li>Helped standardise client demonstration workflows.</li>
+    </ul>
+  </div>
+
+  <div class="experience">
+    <div class="meta">APRIL 2025 – JUNE 2025</div>
+    <h3>Digital Marketing & Sales Enablement Intern</h3>
+    <strong>Madras Engineering Industries</strong>
+    <ul>
+      <li>Developed a national product catalogue for B2B sales teams.</li>
+      <li>Achieved 50% cost reduction through vendor negotiations.</li>
+      <li>Designed the MEI Mithra Loyalty Program.</li>
+      <li>Coordinated with vendors, agencies and internal stakeholders.</li>
+    </ul>
+  </div>
+
+  <div class="experience">
+    <div class="meta">OCTOBER 2024 – MARCH 2025</div>
+    <h3>Outreach & Business Development Support</h3>
+    <strong>MCC-MRF Innovation Park</strong>
+    <ul>
+      <li>Researched and profiled prospective industry partners and startups.</li>
+      <li>Supported market mapping and outreach initiatives.</li>
+      <li>Coordinated the Food Startup Conclave.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-label">03 / SELECTED WORK</div>
+  <h2>Ideas into execution.</h2>
+
+  <div class="projects">
+    <div class="project">
+      <div class="meta">B2B SALES ENABLEMENT</div>
+      <h3>National Product Catalogue</h3>
+      <p>Developed a product catalogue to support B2B sales teams across India.</p>
+    </div>
+    <div class="project">
+      <div class="meta">CUSTOMER ENGAGEMENT</div>
+      <h3>MEI Mithra Loyalty Program</h3>
+      <p>Designed a customer loyalty initiative supporting engagement and retention.</p>
+    </div>
+    <div class="project">
+      <div class="meta">CLIENT ENGAGEMENT</div>
+      <h3>Client Demonstration Workflow</h3>
+      <p>Worked on standardising client demonstration workflows at Mediphore.</p>
+    </div>
+    <div class="project">
+      <div class="meta">STARTUP ECOSYSTEM</div>
+      <h3>Food Startup Conclave</h3>
+      <p>Supported event planning and stakeholder engagement among founders, investors and ecosystem partners.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">04 / RECOGNITION</div>
+  <h2>Milestones that matter.</h2>
+  <div class="achievements">
+    <div class="achievement">
+      <h3>All India Finalist</h3>
+      <p>Chanakya Management Game – AIMA</p>
+    </div>
+    <div class="achievement">
+      <h3>7th out of 324</h3>
+      <p>BSmart Case Study Competition</p>
+    </div>
+    <div class="achievement">
+      <h3>2nd Place</h3>
+      <p>From Idea to Impact – MCC BTSB</p>
+    </div>
+    <div class="achievement">
+      <h3>Winner</h3>
+      <p>IPL 2.0 – Kerala Startup Mission zonal competition</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">05 / EDUCATION</div>
+  <h2>My academic foundation.</h2>
+  <div class="education-item">
+    <strong>PGDM</strong>
+    <p>MCC Boyd Tandon School of Business · 2026 · 6.91/8 CGPA</p>
+  </div>
+  <div class="education-item">
+    <strong>M.Sc. Zoology</strong>
+    <p>St. Teresa's College · 2024 · 4/5 CGPA</p>
+  </div>
+  <div class="education-item">
+    <strong>B.Sc. Zoology</strong>
+    <p>Madras Christian College · 2022 · 8.3/10 CGPA</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">06 / CAPABILITIES</div>
+  <h2>What I bring to the table.</h2>
+  <div class="skills">
+    <span>B2B Business Development</span>
+    <span>Lead Generation</span>
+    <span>Client Acquisition</span>
+    <span>Partnership Building</span>
+    <span>Stakeholder Management</span>
+    <span>Vendor Negotiation</span>
+    <span>Pre-sales Coordination</span>
+    <span>Market Research</span>
+    <span>Competitor Analysis</span>
+    <span>Sales Enablement</span>
+    <span>Client Presentations</span>
+    <span>Power BI</span>
+    <span>Tableau</span>
+    <span>Google Analytics</span>
+    <span>MS Office</span>
+  </div>
+  <h3 style="margin-top:35px">Certifications</h3>
+  <p class="about-text">
+    NPTEL – Market Research and Analysis (All India Topper, 2025)<br>
+    NPTEL – Innovation, Business Model and Entrepreneurship (Elite, 2025)<br>
+    AI Accelerator Course (In Progress)<br>
+    Excel and Statistics – Udemy (2024)
+  </p>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-label">07 / LET'S CONNECT</div>
+  <h2>Good conversations create great opportunities.</h2>
+  <p>
+    Interested in business growth, technology, partnerships or new opportunities?
+    I'd be happy to connect.
+  </p>
+  <p>
+    Email: <a href="mailto:rosemary27062001@gmail.com">rosemary27062001@gmail.com</a>
+  </p>
+  <p>
+    LinkedIn:
+    <a href="https://linkedin.com/in/rose-mary-a0a037282" target="_blank">
+      Connect with me ↗
+    </a>
+  </p>
+</section>
+
+<footer>
+  <span>© 2026 Rose Mary. All rights reserved.</span>
+  <span>Built with curiosity and intention.</span>
+</footer>
+
+</body>
+</html>
