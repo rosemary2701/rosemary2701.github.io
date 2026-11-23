@@ -38,7 +38,6 @@
       background:var(--bg);
       color:var(--ink);
       font:300 16px/1.85 var(--sans);
-      transition:background .4s ease,color .4s ease;
       overflow-x:hidden;
     }
 
@@ -60,7 +59,6 @@
       color:var(--mute);
     }
 
-    /* Top navigation */
     .topbar{
       position:fixed;
       top:0;
@@ -72,7 +70,7 @@
       justify-content:space-between;
       gap:24px;
       padding:22px 32px;
-      background:color-mix(in srgb, var(--bg) 88%, transparent);
+      background:color-mix(in srgb,var(--bg) 88%,transparent);
       backdrop-filter:blur(12px);
       border-bottom:1px solid var(--line);
     }
@@ -123,7 +121,6 @@
 
     .mode:hover{color:var(--ink)}
 
-    /* Centered hero */
     .hero{
       min-height:100vh;
       display:flex;
@@ -141,9 +138,7 @@
       text-align:center;
     }
 
-    .hero .small{
-      margin:0 0 28px;
-    }
+    .hero .small{margin:0 0 28px}
 
     h1{
       font:400 clamp(42px,6.2vw,82px)/1.12 var(--serif);
@@ -187,11 +182,7 @@
       color:var(--ink);
     }
 
-    /* Sections */
-    section{
-      padding:120px 0;
-      position:relative;
-    }
+    section{padding:120px 0}
 
     .head{
       display:flex;
@@ -211,17 +202,6 @@
     .head h2{
       font:400 clamp(30px,3.6vw,44px)/1.2 var(--serif);
       margin:0;
-    }
-
-    .rv{
-      opacity:0;
-      transform:translateY(10px);
-      transition:opacity .7s ease,transform .7s ease;
-    }
-
-    .rv.in{
-      opacity:1;
-      transform:none;
     }
 
     /* About */
@@ -300,9 +280,7 @@
     }
 
     /* Selected Work */
-    .works{
-      border-top:1px solid var(--line);
-    }
+    .works{border-top:1px solid var(--line)}
 
     .wk{
       display:grid;
@@ -313,18 +291,14 @@
       transition:border-color .3s;
     }
 
-    .wk:hover{
-      border-bottom-color:var(--accent);
-    }
+    .wk:hover{border-bottom-color:var(--accent)}
 
     .wk h3{
       font:400 clamp(24px,2.8vw,32px)/1.25 var(--serif);
       margin:0;
     }
 
-    .wk .small{
-      margin-top:10px;
-    }
+    .wk .small{margin-top:10px}
 
     .wk p{
       margin:0;
@@ -381,9 +355,7 @@
       max-width:38em;
     }
 
-    .job li{
-      margin-bottom:6px;
-    }
+    .job li{margin-bottom:6px}
 
     /* Recognition */
     .recognition-grid{
@@ -395,18 +367,12 @@
     .recognition-card{
       border:1px solid var(--line);
       padding:30px 26px;
-      opacity:0;
-      transform:translateY(18px);
-      transition:opacity .6s ease,transform .6s ease,border-color .3s;
-    }
-
-    .recognition-card.in{
-      opacity:1;
-      transform:none;
+      transition:border-color .3s,transform .3s;
     }
 
     .recognition-card:hover{
       border-color:var(--accent);
+      transform:translateY(-3px);
     }
 
     .recognition-card .badge{
@@ -437,18 +403,12 @@
     .capability-card{
       border:1px solid var(--line);
       padding:30px;
-      opacity:0;
-      transform:translateY(18px);
-      transition:opacity .6s ease,transform .6s ease,border-color .3s;
-    }
-
-    .capability-card.in{
-      opacity:1;
-      transform:none;
+      transition:border-color .3s,transform .3s;
     }
 
     .capability-card:hover{
       border-color:var(--accent);
+      transform:translateY(-3px);
     }
 
     .capability-card h3{
@@ -481,9 +441,7 @@
       transition:color .2s,padding-left .2s;
     }
 
-    .capability-card li:last-child{
-      border-bottom:0;
-    }
+    .capability-card li:last-child{border-bottom:0}
 
     .capability-card li:hover{
       color:var(--ink);
@@ -522,13 +480,9 @@
       align-items:baseline;
     }
 
-    .ed div:first-child{
-      border-top:1px solid var(--line);
-    }
+    .ed div:first-child{border-top:1px solid var(--line)}
 
-    .ed b{
-      font:400 24px var(--serif);
-    }
+    .ed b{font:400 24px var(--serif)}
 
     .ed span{
       color:var(--mute);
@@ -596,9 +550,7 @@
     }
 
     .mail button:hover,
-    .mail a:hover{
-      color:var(--ink);
-    }
+    .mail a:hover{color:var(--ink)}
 
     footer{
       padding:0 0 44px;
@@ -609,19 +561,10 @@
     }
 
     @media(max-width:900px){
-      .topbar{
-        padding:18px 20px;
-      }
+      .topbar{padding:18px 20px}
+      .topnav{gap:16px}
 
-      .topnav{
-        gap:16px;
-      }
-
-      .about-grid{
-        grid-template-columns:1fr;
-        gap:40px;
-      }
-
+      .about-grid,
       .wk{
         grid-template-columns:1fr;
         gap:26px;
@@ -635,9 +578,7 @@
         grid-template-columns:1fr;
       }
 
-      .cert{
-        grid-template-columns:1fr;
-      }
+      .cert{grid-template-columns:1fr}
 
       .ed div{
         grid-template-columns:1fr auto;
@@ -648,30 +589,11 @@
         order:3;
       }
 
-      section{
-        padding:90px 0;
-      }
+      section{padding:90px 0}
     }
 
     @media(max-width:560px){
-      .recognition-grid{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media(prefers-reduced-motion:reduce){
-      *,
-      *:before,
-      *:after{
-        transition-duration:.01ms!important;
-      }
-
-      .rv,
-      .recognition-card,
-      .capability-card{
-        opacity:1;
-        transform:none;
-      }
+      .recognition-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -696,7 +618,7 @@
   <main>
     <section class="hero" id="top">
       <div class="w">
-        <p class="small">Business Growth &nbsp;·&nbsp; B2B Sales &nbsp;·&nbsp; Strategy &nbsp;—&nbsp; Chennai</p>
+        <p class="small">Business Growth · B2B Sales · Strategy — Chennai</p>
 
         <h1>Turning opportunities into <em>meaningful</em> growth.</h1>
 
@@ -714,16 +636,15 @@
 
     <section id="about">
       <div class="w">
-        <div class="head rv">
+        <div class="head">
           <span class="num">01</span>
           <h2>About</h2>
         </div>
 
         <div class="about-grid">
-          <div class="about-intro rv">
+          <div class="about-intro">
             <p class="about-lead">
-              I’m Rose Mary — a business growth and stakeholder management professional
-              based in Chennai.
+              I’m Rose Mary — a business growth and stakeholder management professional based in Chennai.
             </p>
 
             <p>
@@ -741,7 +662,7 @@
             </div>
           </div>
 
-          <div class="about-facts rv">
+          <div class="about-facts">
             <div class="fact">
               <b>50%</b>
               <span>Cost reduction through vendor negotiations at MEI</span>
@@ -763,12 +684,12 @@
 
     <section id="work">
       <div class="w">
-        <div class="head rv">
+        <div class="head">
           <span class="num">02</span>
           <h2>Selected Work</h2>
         </div>
 
-        <div class="works rv">
+        <div class="works">
           <article class="wk">
             <div>
               <div class="small">2026 · Pre-Sales · Mediphore</div>
@@ -838,13 +759,13 @@
 
     <section id="experience">
       <div class="w">
-        <div class="head rv">
+        <div class="head">
           <span class="num">03</span>
           <h2>Experience</h2>
         </div>
 
         <div class="tl">
-          <div class="job rv">
+          <div class="job">
             <div class="small">May 2026 — Present</div>
             <h3>General Management</h3>
             <div class="small">Mediphore Systems and Technologies Pvt. Ltd.</div>
@@ -857,7 +778,7 @@
             </ul>
           </div>
 
-          <div class="job rv">
+          <div class="job">
             <div class="small">April — June 2025</div>
             <h3>Digital Marketing &amp; Sales Enablement Intern</h3>
             <div class="small">Madras Engineering Industries</div>
@@ -870,7 +791,7 @@
             </ul>
           </div>
 
-          <div class="job rv">
+          <div class="job">
             <div class="small">October 2024 — March 2025</div>
             <h3>Outreach &amp; Business Development Support</h3>
             <div class="small">MCC-MRF Innovation Park</div>
@@ -887,25 +808,89 @@
 
     <section id="recognition">
       <div class="w">
-        <div class="head rv">
+        <div class="head">
           <span class="num">04</span>
           <h2>Recognition</h2>
         </div>
 
-        <div class="recognition-grid" id="recognitionGrid"></div>
+        <div class="recognition-grid" id="recognitionGrid">
+          <article class="recognition-card">
+            <span class="badge">All India Finalist</span>
+            <h3>AIMA Chanakya</h3>
+            <p>Management Game competition.</p>
+          </article>
+
+          <article class="recognition-card">
+            <span class="badge">7 of 324</span>
+            <h3>BSmart Case Study</h3>
+            <p>National case study competition.</p>
+          </article>
+
+          <article class="recognition-card">
+            <span class="badge">Second Place</span>
+            <h3>From Idea to Impact</h3>
+            <p>MCC BTSB innovation initiative.</p>
+          </article>
+
+          <article class="recognition-card">
+            <span class="badge">Winner</span>
+            <h3>IPL 2.0</h3>
+            <p>Kerala Startup Mission zonal competition.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="capabilities">
       <div class="w">
-        <div class="head rv">
+        <div class="head">
           <span class="num">05</span>
           <h2>Capabilities</h2>
         </div>
 
-        <div class="capabilities-grid" id="capabilitiesGrid"></div>
+        <div class="capabilities-grid" id="capabilitiesGrid">
+          <article class="capability-card">
+            <h3><i>I.</i> Commercial</h3>
 
-        <div class="cert rv">
+            <ul>
+              <li>B2B business development</li>
+              <li>Lead generation</li>
+              <li>Client acquisition</li>
+              <li>Partnership building</li>
+              <li>Stakeholder management</li>
+              <li>Vendor negotiation</li>
+              <li>Pre-sales coordination</li>
+              <li>Sales enablement</li>
+              <li>Client presentations</li>
+            </ul>
+          </article>
+
+          <article class="capability-card">
+            <h3><i>II.</i> Strategy</h3>
+
+            <ul>
+              <li>Market research</li>
+              <li>Competitor analysis</li>
+              <li>Business opportunity mapping</li>
+              <li>Go-to-market thinking</li>
+              <li>Partnership strategy</li>
+            </ul>
+          </article>
+
+          <article class="capability-card">
+            <h3><i>III.</i> Analytics &amp; Tools</h3>
+
+            <ul>
+              <li>Power BI</li>
+              <li>Tableau</li>
+              <li>Google Analytics</li>
+              <li>MS Office</li>
+              <li>Excel &amp; Statistics</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="cert">
           <div>
             <b>NPTEL: Market Research and Analysis (All India Topper)</b>
             <span>2025</span>
@@ -931,12 +916,12 @@
 
     <section id="education">
       <div class="w">
-        <div class="head rv">
+        <div class="head">
           <span class="num">06</span>
           <h2>Education</h2>
         </div>
 
-        <div class="ed rv">
+        <div class="ed">
           <div>
             <b>PGDM</b>
             <span>MCC Boyd Tandon School of Business, 2026</span>
@@ -960,18 +945,18 @@
 
     <section class="contact" id="contact">
       <div class="w">
-        <h2 class="rv">Have something interesting in mind?</h2>
+        <h2>Have something interesting in mind?</h2>
 
-        <p class="rv">
+        <p>
           Interested in business growth, technology, partnerships or new opportunities?
           I’d be happy to connect.
         </p>
 
-        <a class="ring rv" href="mailto:rosemary27062001@gmail.com?subject=Hello%20Rose%20Mary">
+        <a class="ring" href="mailto:rosemary27062001@gmail.com?subject=Hello%20Rose%20Mary">
           <span>Say Hello</span>
         </a>
 
-        <div class="mail rv">
+        <div class="mail">
           <a href="mailto:rosemary27062001@gmail.com">rosemary27062001@gmail.com</a>
           <button id="copy">Copy</button>
           <a href="https://linkedin.com/in/rose-mary-a0a037282" target="_blank" rel="noopener">LinkedIn</a>
@@ -983,13 +968,14 @@
   <footer>© <span id="yr">2026</span> ROSE MARY</footer>
 
   <script>
-    const $=(s,r=document)=>r.querySelector(s);
-    const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+    const $=(selector,root=document)=>root.querySelector(selector);
+    const $$=(selector,root=document)=>[...root.querySelectorAll(selector)];
     const root=document.documentElement;
 
     $("#yr").textContent=new Date().getFullYear();
 
     /* Theme toggle */
+    const mode=$("#mode");
     let savedTheme=null;
 
     try{
@@ -999,8 +985,6 @@
     if(savedTheme){
       root.dataset.theme=savedTheme;
     }
-
-    const mode=$("#mode");
 
     const syncTheme=()=>{
       mode.textContent=root.dataset.theme==="paper"?"Dark":"Paper";
@@ -1042,21 +1026,7 @@
 
     $$("main section[id]").forEach(section=>sectionObserver.observe(section));
 
-    /* Fade-in reveal */
-    const revealObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(!entry.isIntersecting)return;
-
-        entry.target.classList.add("in");
-        revealObserver.unobserve(entry.target);
-      });
-    },{
-      threshold:.15
-    });
-
-    $$(".rv").forEach(element=>revealObserver.observe(element));
-
-    /* Dynamic Recognition */
+    /* Dynamic Recognition enhancement */
     const recognitions=[
       {
         badge:"All India Finalist",
@@ -1080,30 +1050,17 @@
       }
     ];
 
-    const recognitionGrid=document.getElementById("recognitionGrid");
+    const recognitionGrid=$("#recognitionGrid");
 
-    recognitionGrid.innerHTML=recognitions.map((item,index)=>`
-      <article class="recognition-card" style="transition-delay:${index * 0.08}s">
+    recognitionGrid.innerHTML=recognitions.map(item=>`
+      <article class="recognition-card">
         <span class="badge">${item.badge}</span>
         <h3>${item.title}</h3>
         <p>${item.description}</p>
       </article>
     `).join("");
 
-    const recognitionObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("in");
-          recognitionObserver.unobserve(entry.target);
-        }
-      });
-    },{
-      threshold:.2
-    });
-
-    $$(".recognition-card").forEach(card=>recognitionObserver.observe(card));
-
-    /* Dynamic Capabilities */
+    /* Dynamic Capabilities enhancement */
     const capabilities=[
       {
         number:"I.",
@@ -1144,10 +1101,10 @@
       }
     ];
 
-    const capabilitiesGrid=document.getElementById("capabilitiesGrid");
+    const capabilitiesGrid=$("#capabilitiesGrid");
 
-    capabilitiesGrid.innerHTML=capabilities.map((group,index)=>`
-      <article class="capability-card" style="transition-delay:${index * 0.1}s">
+    capabilitiesGrid.innerHTML=capabilities.map(group=>`
+      <article class="capability-card">
         <h3><i>${group.number}</i>${group.title}</h3>
 
         <ul>
@@ -1156,17 +1113,19 @@
       </article>
     `).join("");
 
-    const capabilityObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("in");
-          capabilityObserver.unobserve(entry.target);
-        }
-      });
-    },{
-      threshold:.2
+    /* Copy email */
+    $("#copy").addEventListener("click",async event=>{
+      const button=event.currentTarget;
+
+      try{
+        await navigator.clipboard.writeText("rosemary27062001@gmail.com");
+        button.textContent="Copied";
+      }catch(error){
+        button.textContent="Select to copy";
+      }
+
+      setTimeout(()=>{
+        button.textContent="Copy";
+      },2000);
     });
-
-    $$(".capability-card").forEach(card=>capabilityObserver.observe(card));
-
-    /* Copy email
+  </script>
