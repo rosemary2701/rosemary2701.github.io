@@ -225,36 +225,76 @@
     }
 
     /* About */
-    .ab{
+    .about-grid{
       display:grid;
-      grid-template-columns:1.35fr 1fr;
-      gap:80px;
+      grid-template-columns:1.25fr 1fr;
+      gap:72px;
+      align-items:start;
     }
 
-    .ab p{
-      margin:0 0 1.4em;
-      font-size:16.5px;
-      max-width:33em;
+    .about-lead{
+      font:400 clamp(26px,3vw,36px)/1.35 var(--serif);
+      margin:0 0 26px;
+      max-width:22em;
     }
 
-    .facts{
+    .about-intro p{
+      margin:0 0 1.25em;
+      color:var(--mute);
+      max-width:34em;
+    }
+
+    .about-intro strong{
+      color:var(--ink);
+      font-weight:500;
+    }
+
+    .about-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:28px;
+    }
+
+    .about-tags span{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--mute);
+      border:1px solid var(--line);
+      border-radius:100px;
+      padding:8px 16px;
+      transition:border-color .25s,color .25s;
+    }
+
+    .about-tags span:hover{
+      border-color:var(--accent);
+      color:var(--ink);
+    }
+
+    .about-facts{
       display:grid;
-      gap:28px;
-      align-content:start;
+      gap:18px;
     }
 
-    .facts div{
-      border-top:1px solid var(--line);
-      padding-top:16px;
+    .fact{
+      border:1px solid var(--line);
+      padding:26px;
+      transition:border-color .3s,transform .3s;
     }
 
-    .facts b{
+    .fact:hover{
+      border-color:var(--accent);
+      transform:translateY(-3px);
+    }
+
+    .fact b{
       display:block;
-      font:400 38px/1.15 var(--serif);
-      margin-bottom:4px;
+      font:400 42px/1.1 var(--serif);
+      margin-bottom:8px;
     }
 
-    .facts span{
+    .fact span{
       font-size:13px;
       color:var(--mute);
     }
@@ -317,10 +357,6 @@
     }
 
     /* Experience */
-    .tl{
-      padding-left:0;
-    }
-
     .job{
       padding-bottom:56px;
       border-bottom:1px solid var(--line);
@@ -349,79 +385,109 @@
       margin-bottom:6px;
     }
 
-    /* Recognition & Capabilities */
-    .aw{
+    /* Recognition */
+    .recognition-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
+      gap:18px;
     }
 
-    .aw div{
-      padding:32px 24px 32px 0;
-      border-right:1px solid var(--line);
+    .recognition-card{
+      border:1px solid var(--line);
+      padding:30px 26px;
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .6s ease,transform .6s ease,border-color .3s;
     }
 
-    .aw div+div{
-      padding-left:24px;
+    .recognition-card.in{
+      opacity:1;
+      transform:none;
     }
 
-    .aw div:last-child{
-      border-right:0;
+    .recognition-card:hover{
+      border-color:var(--accent);
     }
 
-    .aw b{
-      display:block;
-      font:400 28px/1.25 var(--serif);
-      margin-bottom:8px;
+    .recognition-card .badge{
+      font-size:11px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:var(--accent);
     }
 
-    .aw span{
-      font-size:13px;
+    .recognition-card h3{
+      font:400 28px/1.2 var(--serif);
+      margin:14px 0 10px;
+    }
+
+    .recognition-card p{
+      margin:0;
+      font-size:14px;
       color:var(--mute);
-      line-height:1.6;
-      display:block;
     }
 
-    .sk{
+    /* Capabilities */
+    .capabilities-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:48px;
+      gap:22px;
     }
 
-    .sk h3{
+    .capability-card{
+      border:1px solid var(--line);
+      padding:30px;
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .6s ease,transform .6s ease,border-color .3s;
+    }
+
+    .capability-card.in{
+      opacity:1;
+      transform:none;
+    }
+
+    .capability-card:hover{
+      border-color:var(--accent);
+    }
+
+    .capability-card h3{
       font:400 12px var(--sans);
       letter-spacing:.2em;
       text-transform:uppercase;
-      margin:0 0 18px;
+      margin:0 0 20px;
       display:flex;
-      gap:12px;
       align-items:baseline;
-      border-bottom:1px solid var(--line);
-      padding-bottom:14px;
+      gap:12px;
     }
 
-    .sk h3 i{
-      font:400 16px var(--serif);
+    .capability-card h3 i{
+      font:400 18px var(--serif);
       color:var(--accent);
       font-style:italic;
     }
 
-    .sk ul{
+    .capability-card ul{
       list-style:none;
       margin:0;
       padding:0;
+    }
+
+    .capability-card li{
       font-size:14.5px;
       color:var(--mute);
+      padding:7px 0;
+      border-bottom:1px solid var(--line);
+      transition:color .2s,padding-left .2s;
     }
 
-    .sk li{
-      padding:5px 0;
-      transition:color .2s;
+    .capability-card li:last-child{
+      border-bottom:0;
     }
 
-    .sk li:hover{
+    .capability-card li:hover{
       color:var(--ink);
+      padding-left:6px;
     }
 
     .cert{
@@ -446,6 +512,7 @@
       color:var(--ink);
     }
 
+    /* Education */
     .ed div{
       display:grid;
       grid-template-columns:1fr 2fr auto;
@@ -550,31 +617,22 @@
         gap:16px;
       }
 
-      .ab,
+      .about-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+      }
+
       .wk{
         grid-template-columns:1fr;
         gap:26px;
       }
 
-      .sk{
-        grid-template-columns:1fr;
-        gap:32px;
-      }
-
-      .aw{
+      .recognition-grid{
         grid-template-columns:1fr 1fr;
       }
 
-      .aw div:nth-child(2){
-        border-right:0;
-      }
-
-      .aw div:nth-child(3){
-        padding-left:0;
-      }
-
-      .aw div:nth-child(n+3){
-        border-top:1px solid var(--line);
+      .capabilities-grid{
+        grid-template-columns:1fr;
       }
 
       .cert{
@@ -595,6 +653,12 @@
       }
     }
 
+    @media(max-width:560px){
+      .recognition-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
     @media(prefers-reduced-motion:reduce){
       *,
       *:before,
@@ -602,7 +666,9 @@
         transition-duration:.01ms!important;
       }
 
-      .rv{
+      .rv,
+      .recognition-card,
+      .capability-card{
         opacity:1;
         transform:none;
       }
@@ -653,35 +719,42 @@
           <h2>About</h2>
         </div>
 
-        <div class="ab">
-          <div class="rv">
-            <p>
-              My journey began in science and evolved into management. With a postgraduate management education
-              and experience across business development, startup operations, sales enablement and stakeholder
-              coordination, I bring an analytical perspective to business challenges.
+        <div class="about-grid">
+          <div class="about-intro rv">
+            <p class="about-lead">
+              I’m Rose Mary — a business growth and stakeholder management professional
+              based in Chennai.
             </p>
 
             <p>
-              I enjoy understanding how businesses work, identifying opportunities, building professional
-              relationships and turning ideas into action. I’m particularly interested in technology-driven
-              businesses, AI solutions and strategic partnerships.
+              I work at the intersection of <strong>commercial strategy</strong>,
+              <strong>B2B relationships</strong> and <strong>practical execution</strong> —
+              helping ideas move from research and conversations into real opportunities.
             </p>
+
+            <div class="about-tags">
+              <span>B2B Sales</span>
+              <span>Partnerships</span>
+              <span>Strategy</span>
+              <span>AI &amp; Technology</span>
+              <span>Stakeholder Management</span>
+            </div>
           </div>
 
-          <div class="facts rv">
-            <div>
+          <div class="about-facts rv">
+            <div class="fact">
               <b>50%</b>
               <span>Cost reduction through vendor negotiations at MEI</span>
             </div>
 
-            <div>
-              <b>7 of 324</b>
-              <span>BSmart Case Study Competition</span>
+            <div class="fact">
+              <b>7 / 324</b>
+              <span>Rank, BSmart Case Study Competition</span>
             </div>
 
-            <div>
-              <b>6.91 / 8</b>
-              <span>PGDM CGPA</span>
+            <div class="fact">
+              <b>3</b>
+              <span>Organisations across business development, innovation and technology</span>
             </div>
           </div>
         </div>
@@ -698,40 +771,8 @@
         <div class="works rv">
           <article class="wk">
             <div>
-              <h3>National Product Catalogue</h3>
-              <div class="small">B2B Sales Enablement · MEI</div>
-            </div>
-
-            <div>
-              <p>Developed a national product catalogue to make product information more accessible and useful for B2B sales teams across India.</p>
-
-              <ul>
-                <li>Organised product information into a clear catalogue format.</li>
-                <li>Supported sales teams with a standardised product reference.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="wk">
-            <div>
-              <h3>MEI Mithra Loyalty Program</h3>
-              <div class="small">Customer Engagement · MEI</div>
-            </div>
-
-            <div>
-              <p>Designed a customer loyalty initiative to support engagement and retention.</p>
-
-              <ul>
-                <li>Contributed to the design of the loyalty program concept.</li>
-                <li>Coordinated with vendors, agencies and internal stakeholders.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="wk">
-            <div>
+              <div class="small">2026 · Pre-Sales · Mediphore</div>
               <h3>Client Demonstration Workflow</h3>
-              <div class="small">Pre-Sales · Mediphore</div>
             </div>
 
             <div>
@@ -746,8 +787,40 @@
 
           <article class="wk">
             <div>
+              <div class="small">2025 · B2B Sales Enablement · MEI</div>
+              <h3>National Product Catalogue</h3>
+            </div>
+
+            <div>
+              <p>Developed a national product catalogue to make product information more accessible and useful for B2B sales teams across India.</p>
+
+              <ul>
+                <li>Organised product information into a clear catalogue format.</li>
+                <li>Supported sales teams with a standardised product reference.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="wk">
+            <div>
+              <div class="small">2025 · Customer Engagement · MEI</div>
+              <h3>MEI Mithra Loyalty Program</h3>
+            </div>
+
+            <div>
+              <p>Designed a customer loyalty initiative to support engagement and retention.</p>
+
+              <ul>
+                <li>Contributed to the design of the loyalty program concept.</li>
+                <li>Coordinated with vendors, agencies and internal stakeholders.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="wk">
+            <div>
+              <div class="small">2024–25 · Startup Ecosystem · MCC-MRF Innovation Park</div>
               <h3>Food Startup Conclave</h3>
-              <div class="small">Startup Ecosystem · MCC-MRF Innovation Park</div>
             </div>
 
             <div>
@@ -819,27 +892,7 @@
           <h2>Recognition</h2>
         </div>
 
-        <div class="aw rv">
-          <div>
-            <b>Finalist</b>
-            <span>AIMA Chanakya Management Game, All India</span>
-          </div>
-
-          <div>
-            <b>7 of 324</b>
-            <span>BSmart Case Study Competition</span>
-          </div>
-
-          <div>
-            <b>Second</b>
-            <span>From Idea to Impact, MCC BTSB</span>
-          </div>
-
-          <div>
-            <b>Winner</b>
-            <span>IPL 2.0, Kerala Startup Mission zonal competition</span>
-          </div>
-        </div>
+        <div class="recognition-grid" id="recognitionGrid"></div>
       </div>
     </section>
 
@@ -850,43 +903,7 @@
           <h2>Capabilities</h2>
         </div>
 
-        <div class="sk rv">
-          <div>
-            <h3><i>I.</i>Commercial</h3>
-
-            <ul>
-              <li>B2B business development</li>
-              <li>Lead generation</li>
-              <li>Client acquisition</li>
-              <li>Partnership building</li>
-              <li>Stakeholder management</li>
-              <li>Vendor negotiation</li>
-              <li>Pre-sales coordination</li>
-              <li>Sales enablement</li>
-              <li>Client presentations</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3><i>II.</i>Strategy</h3>
-
-            <ul>
-              <li>Market research</li>
-              <li>Competitor analysis</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3><i>III.</i>Analytics and Tools</h3>
-
-            <ul>
-              <li>Power BI</li>
-              <li>Tableau</li>
-              <li>Google Analytics</li>
-              <li>MS Office</li>
-            </ul>
-          </div>
-        </div>
+        <div class="capabilities-grid" id="capabilitiesGrid"></div>
 
         <div class="cert rv">
           <div>
@@ -942,4 +959,214 @@
     </section>
 
     <section class="contact" id="contact">
-      <div
+      <div class="w">
+        <h2 class="rv">Have something interesting in mind?</h2>
+
+        <p class="rv">
+          Interested in business growth, technology, partnerships or new opportunities?
+          I’d be happy to connect.
+        </p>
+
+        <a class="ring rv" href="mailto:rosemary27062001@gmail.com?subject=Hello%20Rose%20Mary">
+          <span>Say Hello</span>
+        </a>
+
+        <div class="mail rv">
+          <a href="mailto:rosemary27062001@gmail.com">rosemary27062001@gmail.com</a>
+          <button id="copy">Copy</button>
+          <a href="https://linkedin.com/in/rose-mary-a0a037282" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="yr">2026</span> ROSE MARY</footer>
+
+  <script>
+    const $=(s,r=document)=>r.querySelector(s);
+    const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+    const root=document.documentElement;
+
+    $("#yr").textContent=new Date().getFullYear();
+
+    /* Theme toggle */
+    let savedTheme=null;
+
+    try{
+      savedTheme=localStorage.getItem("rm-theme");
+    }catch(error){}
+
+    if(savedTheme){
+      root.dataset.theme=savedTheme;
+    }
+
+    const mode=$("#mode");
+
+    const syncTheme=()=>{
+      mode.textContent=root.dataset.theme==="paper"?"Dark":"Paper";
+    };
+
+    syncTheme();
+
+    mode.addEventListener("click",()=>{
+      const nextTheme=root.dataset.theme==="paper"?"dark":"paper";
+      root.dataset.theme=nextTheme;
+
+      try{
+        localStorage.setItem("rm-theme",nextTheme);
+      }catch(error){}
+
+      syncTheme();
+    });
+
+    /* Active navigation */
+    const navLinks=$$(".topnav a");
+
+    const sectionObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id=entry.target.id==="recognition"
+            ?"experience"
+            :entry.target.id==="education"
+            ?"capabilities"
+            :entry.target.id;
+
+          navLinks.forEach(link=>{
+            link.classList.toggle("on",link.hash==="#"+id);
+          });
+        }
+      });
+    },{
+      rootMargin:"-45% 0px -50% 0px"
+    });
+
+    $$("main section[id]").forEach(section=>sectionObserver.observe(section));
+
+    /* Fade-in reveal */
+    const revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting)return;
+
+        entry.target.classList.add("in");
+        revealObserver.unobserve(entry.target);
+      });
+    },{
+      threshold:.15
+    });
+
+    $$(".rv").forEach(element=>revealObserver.observe(element));
+
+    /* Dynamic Recognition */
+    const recognitions=[
+      {
+        badge:"All India Finalist",
+        title:"AIMA Chanakya",
+        description:"Management Game competition."
+      },
+      {
+        badge:"7 of 324",
+        title:"BSmart Case Study",
+        description:"National case study competition."
+      },
+      {
+        badge:"Second Place",
+        title:"From Idea to Impact",
+        description:"MCC BTSB innovation initiative."
+      },
+      {
+        badge:"Winner",
+        title:"IPL 2.0",
+        description:"Kerala Startup Mission zonal competition."
+      }
+    ];
+
+    const recognitionGrid=document.getElementById("recognitionGrid");
+
+    recognitionGrid.innerHTML=recognitions.map((item,index)=>`
+      <article class="recognition-card" style="transition-delay:${index * 0.08}s">
+        <span class="badge">${item.badge}</span>
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+      </article>
+    `).join("");
+
+    const recognitionObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("in");
+          recognitionObserver.unobserve(entry.target);
+        }
+      });
+    },{
+      threshold:.2
+    });
+
+    $$(".recognition-card").forEach(card=>recognitionObserver.observe(card));
+
+    /* Dynamic Capabilities */
+    const capabilities=[
+      {
+        number:"I.",
+        title:"Commercial",
+        skills:[
+          "B2B business development",
+          "Lead generation",
+          "Client acquisition",
+          "Partnership building",
+          "Stakeholder management",
+          "Vendor negotiation",
+          "Pre-sales coordination",
+          "Sales enablement",
+          "Client presentations"
+        ]
+      },
+      {
+        number:"II.",
+        title:"Strategy",
+        skills:[
+          "Market research",
+          "Competitor analysis",
+          "Business opportunity mapping",
+          "Go-to-market thinking",
+          "Partnership strategy"
+        ]
+      },
+      {
+        number:"III.",
+        title:"Analytics & Tools",
+        skills:[
+          "Power BI",
+          "Tableau",
+          "Google Analytics",
+          "MS Office",
+          "Excel & Statistics"
+        ]
+      }
+    ];
+
+    const capabilitiesGrid=document.getElementById("capabilitiesGrid");
+
+    capabilitiesGrid.innerHTML=capabilities.map((group,index)=>`
+      <article class="capability-card" style="transition-delay:${index * 0.1}s">
+        <h3><i>${group.number}</i>${group.title}</h3>
+
+        <ul>
+          ${group.skills.map(skill=>`<li>${skill}</li>`).join("")}
+        </ul>
+      </article>
+    `).join("");
+
+    const capabilityObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("in");
+          capabilityObserver.unobserve(entry.target);
+        }
+      });
+    },{
+      threshold:.2
+    });
+
+    $$(".capability-card").forEach(card=>capabilityObserver.observe(card));
+
+    /* Copy email
