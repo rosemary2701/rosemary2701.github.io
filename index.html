@@ -1,513 +1,945 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Rose Mary — business growth, B2B sales, partnerships and strategy.">
-<title>Rose Mary | Business Growth, Partnerships &amp; Strategy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0d0e0f;
-  --ink:#eae8e3;
-  --mute:#8b8e8c;
-  --line:#242628;
-  --accent:#c85a44;
-  --serif:"Cormorant Garamond",Georgia,serif;
-  --sans:"Plus Jakarta Sans",system-ui,sans-serif;
-  color-scheme:dark;
-}
-:root[data-theme="paper"]{
-  --bg:#f4f2ec;
-  --ink:#17181a;
-  --mute:#686b6a;
-  --line:#dcd9d0;
-  --accent:#b54530;
-  color-scheme:light;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font:300 16px/1.85 var(--sans);
-  transition:background .4s ease,color .4s ease;
-  overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
-:focus-visible{outline:1px solid var(--accent);outline-offset:5px}
-::selection{background:var(--accent);color:#fff}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rose Mary — business growth, B2B sales, partnerships and strategy.">
+  <title>Rose Mary | Business Growth, Partnerships &amp; Strategy</title>
 
-.w{width:min(980px,calc(100% - 140px));margin:0 auto}
-.v{writing-mode:vertical-rl;letter-spacing:.28em}
-.small{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-/* Side Rails */
-.rail{
-  position:fixed;top:0;bottom:0;
-  display:flex;flex-direction:column;justify-content:space-between;align-items:center;
-  padding:36px 0;z-index:30;width:64px;
-}
-.rail.l{left:0}
-.rail.r{right:0}
-.mark{width:7px;height:7px;background:var(--accent);border-radius:50%}
-.rail nav{display:flex;flex-direction:column;gap:24px;align-items:center}
-.rail nav a{
-  writing-mode:vertical-rl;
-  font-size:11px;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--mute);transition:color .25s;position:relative;padding:2px 0;
-}
-.rail nav a:hover,.rail nav a.on{color:var(--ink)}
-.rail nav a.on:before{
-  content:"";position:absolute;left:-14px;top:50%;
-  width:4px;height:4px;margin-top:-2px;border-radius:50%;background:var(--accent);
-}
-.mode{
-  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  writing-mode:vertical-rl;color:var(--mute);transition:color .25s;
-}
-.mode:hover{color:var(--ink)}
-.prog{position:fixed;left:64px;top:0;bottom:0;width:1px;background:var(--line);z-index:29}
-.prog i{display:block;width:100%;height:100%;background:var(--accent);transform:scaleY(0);transform-origin:top}
+  <style>
+    :root{
+      --bg:#0d0e0f;
+      --ink:#eae8e3;
+      --mute:#8b8e8c;
+      --line:#242628;
+      --accent:#c85a44;
+      --serif:"Cormorant Garamond",Georgia,serif;
+      --sans:"Plus Jakarta Sans",system-ui,sans-serif;
+      color-scheme:dark;
+    }
 
-/* Centered Hero */
-.hero{
-  min-height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;
-  padding:100px 0;
-}
-.hero .w{display:flex;flex-direction:column;align-items:center}
-.hero .small{margin:0 0 28px}
-h1{
-  font:400 clamp(42px,6.2vw,82px)/1.12 var(--serif);
-  letter-spacing:-.015em;
-  margin:0;
-  max-width:13em;
-}
-h1 em{font-style:italic;color:var(--accent)}
-.desc{
-  max-width:32em;
-  color:var(--mute);
-  margin:32px 0 44px;
-  font-size:16px;
-}
-.cta{display:flex;gap:36px;flex-wrap:wrap;justify-content:center}
-.lnk{
-  font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding-bottom:6px;
-  background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 1px no-repeat,
-             linear-gradient(var(--line),var(--line)) 0 100%/100% 1px no-repeat;
-  transition:background-size .35s ease,color .25s;
-}
-.lnk:hover{background-size:100% 1px,100% 1px;color:var(--ink)}
+    :root[data-theme="paper"]{
+      --bg:#f4f2ec;
+      --ink:#17181a;
+      --mute:#686b6a;
+      --line:#dcd9d0;
+      --accent:#b54530;
+      color-scheme:light;
+    }
 
-/* Sections */
-section{padding:135px 0;position:relative}
-.head{
-  display:flex;align-items:baseline;gap:18px;
-  margin-bottom:56px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:20px;
-}
-.head .num{font:400 13px/1 var(--sans);letter-spacing:.18em;color:var(--accent)}
-.head h2{font:400 clamp(30px,3.6vw,44px)/1.2 var(--serif);margin:0}
+    *{box-sizing:border-box}
 
-.rv{opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font:300 16px/1.85 var(--sans);
+      transition:background .4s ease,color .4s ease;
+      overflow-x:hidden;
+    }
 
-/* About */
-.ab{display:grid;grid-template-columns:1.35fr 1fr;gap:80px}
-.ab p{margin:0 0 1.4em;font-size:16.5px;max-width:33em}
-.facts{display:grid;gap:28px;align-content:start}
-.facts div{border-top:1px solid var(--line);padding-top:16px}
-.facts b{display:block;font:400 38px/1.15 var(--serif);margin-bottom:4px}
-.facts span{font-size:13px;color:var(--mute)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 
-/* Selected Work */
-.works{border-top:1px solid var(--line)}
-.wk{
-  display:grid;grid-template-columns:1fr 1.15fr;gap:40px;
-  padding:36px 0;border-bottom:1px solid var(--line);
-  transition:border-color .3s;
-}
-.wk:hover{border-bottom-color:var(--accent)}
-.wk h3{font:400 clamp(24px,2.8vw,32px)/1.25 var(--serif);margin:0}
-.wk .small{margin-top:10px}
-.wk p{margin:0;color:var(--mute);font-size:15px}
-.wk ul{margin:14px 0 0;padding:0;list-style:none;font-size:14px;color:var(--mute)}
-.wk li{padding-left:18px;position:relative;margin-bottom:4px}
-.wk li:before{content:"";position:absolute;left:0;top:.9em;width:8px;height:1px;background:var(--accent)}
+    :focus-visible{outline:1px solid var(--accent);outline-offset:5px}
+    ::selection{background:var(--accent);color:#fff}
 
-/* Timeline */
-.tl{position:relative;padding-left:40px;--p:0}
-.tl:before,.tl:after{content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line)}
-.tl:after{background:var(--accent);transform:scaleY(var(--p));transform-origin:top}
-.job{position:relative;padding-bottom:56px}
-.job:last-child{padding-bottom:0}
-.job:before{
-  content:"";position:absolute;left:-44px;top:10px;
-  width:7px;height:7px;border-radius:50%;
-  background:var(--bg);border:1px solid var(--mute);transition:border-color .3s,background .3s;
-}
-.job.in:before{border-color:var(--accent);background:var(--accent)}
-.job h3{font:400 28px/1.3 var(--serif);margin:6px 0 4px}
-.job ul{margin:14px 0 0;padding:0;list-style:none;color:var(--mute);font-size:15px;max-width:38em}
-.job li{margin-bottom:6px}
+    .w{
+      width:min(980px,calc(100% - 48px));
+      margin:0 auto;
+    }
 
-/* Recognition & Capabilities */
-.aw{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-}
-.aw div{padding:32px 24px 32px 0;border-right:1px solid var(--line)}
-.aw div+div{padding-left:24px}
-.aw div:last-child{border-right:0}
-.aw b{display:block;font:400 28px/1.25 var(--serif);margin-bottom:8px}
-.aw span{font-size:13px;color:var(--mute);line-height:1.6;display:block}
+    .small{
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--mute);
+    }
 
-.sk{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
-.sk h3{
-  font:400 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;
-  margin:0 0 18px;display:flex;gap:12px;align-items:baseline;
-  border-bottom:1px solid var(--line);padding-bottom:14px;
-}
-.sk h3 i{font:400 16px var(--serif);color:var(--accent);font-style:italic}
-.sk ul{list-style:none;margin:0;padding:0;font-size:14.5px;color:var(--mute)}
-.sk li{padding:5px 0;transition:color .2s}
-.sk li:hover{color:var(--ink)}
+    /* Top navigation */
+    .topbar{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:30;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:22px 32px;
+      background:color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
 
-.cert{margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
-.cert div{
-  display:flex;justify-content:space-between;gap:20px;
-  padding:15px 0;border-bottom:1px solid var(--line);
-  font-size:14px;color:var(--mute);
-}
-.cert b{font-weight:400;color:var(--ink)}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+    }
 
-.ed div{
-  display:grid;grid-template-columns:1fr 2fr auto;gap:20px;
-  padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline;
-}
-.ed div:first-child{border-top:1px solid var(--line)}
-.ed b{font:400 24px var(--serif)}
-.ed span{color:var(--mute);font-size:14px}
-.ed em{font-style:normal;font-size:13px;color:var(--accent)}
+    .mark{
+      width:7px;
+      height:7px;
+      background:var(--accent);
+      border-radius:50%;
+    }
 
-/* Contact */
-.contact{text-align:center;padding:150px 0 110px}
-.contact h2{font:400 clamp(34px,4.8vw,60px)/1.2 var(--serif);margin:0 auto 20px;max-width:13em}
-.contact p{color:var(--mute);max-width:28em;margin:0 auto 52px}
-.ring{
-  width:156px;height:156px;border-radius:50%;
-  border:1px solid var(--line);
-  display:inline-grid;place-items:center;
-  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-  transition:border-color .3s,background .3s,color .3s;
-}
-.ring:hover{border-color:var(--accent);background:var(--accent);color:#fff}
-.mail{
-  margin-top:44px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;
-  font-size:13px;color:var(--mute);letter-spacing:.06em;
-}
-.mail button{color:var(--mute);border-bottom:1px solid var(--line);transition:color .2s}
-.mail button:hover,.mail a:hover{color:var(--ink)}
+    .topnav{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      flex-wrap:wrap;
+    }
 
-footer{padding:0 0 44px;font-size:11px;letter-spacing:.22em;color:var(--mute);text-align:center}
+    .topnav a{
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--mute);
+      transition:color .25s;
+    }
 
-@media(max-width:900px){
-  .w{width:calc(100% - 68px);margin:0 24px 0 auto}
-  .rail.r{display:none}
-  .rail.l{width:40px}
-  .prog{left:40px}
-  .hero .w{width:calc(100% - 64px);margin:0 auto}
-  .ab,.wk{grid-template-columns:1fr;gap:26px}
-  .sk{grid-template-columns:1fr;gap:32px}
-  .aw{grid-template-columns:1fr 1fr}
-  .aw div:nth-child(2){border-right:0}
-  .aw div:nth-child(3){padding-left:0}
-  .aw div:nth-child(n+3){border-top:1px solid var(--line)}
-  .cert{grid-template-columns:1fr}
-  .ed div{grid-template-columns:1fr auto}
-  .ed span{grid-column:1/3;order:3}
-  section{padding:96px 0}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*:before,*:after{transition-duration:.01ms!important}
-  .rv{opacity:1;transform:none}
-}
-</style>
+    .topnav a:hover,
+    .topnav a.on{
+      color:var(--ink);
+    }
+
+    .mode{
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--mute);
+      transition:color .25s;
+    }
+
+    .mode:hover{color:var(--ink)}
+
+    /* Centered hero */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:140px 0 100px;
+    }
+
+    .hero .w{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .hero .small{
+      margin:0 0 28px;
+    }
+
+    h1{
+      font:400 clamp(42px,6.2vw,82px)/1.12 var(--serif);
+      letter-spacing:-.015em;
+      margin:0;
+      max-width:15em;
+    }
+
+    h1 em{
+      font-style:italic;
+      color:var(--accent);
+    }
+
+    .desc{
+      max-width:34em;
+      color:var(--mute);
+      margin:32px auto 44px;
+      font-size:16px;
+    }
+
+    .cta{
+      display:flex;
+      gap:36px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .lnk{
+      font-size:12px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      padding-bottom:6px;
+      background:
+        linear-gradient(var(--accent),var(--accent)) 0 100%/0 1px no-repeat,
+        linear-gradient(var(--line),var(--line)) 0 100%/100% 1px no-repeat;
+      transition:background-size .35s ease,color .25s;
+    }
+
+    .lnk:hover{
+      background-size:100% 1px,100% 1px;
+      color:var(--ink);
+    }
+
+    /* Sections */
+    section{
+      padding:120px 0;
+      position:relative;
+    }
+
+    .head{
+      display:flex;
+      align-items:baseline;
+      gap:18px;
+      margin-bottom:56px;
+      border-bottom:1px solid var(--line);
+      padding-bottom:20px;
+    }
+
+    .head .num{
+      font:400 13px/1 var(--sans);
+      letter-spacing:.18em;
+      color:var(--accent);
+    }
+
+    .head h2{
+      font:400 clamp(30px,3.6vw,44px)/1.2 var(--serif);
+      margin:0;
+    }
+
+    .rv{
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .7s ease,transform .7s ease;
+    }
+
+    .rv.in{
+      opacity:1;
+      transform:none;
+    }
+
+    /* About */
+    .ab{
+      display:grid;
+      grid-template-columns:1.35fr 1fr;
+      gap:80px;
+    }
+
+    .ab p{
+      margin:0 0 1.4em;
+      font-size:16.5px;
+      max-width:33em;
+    }
+
+    .facts{
+      display:grid;
+      gap:28px;
+      align-content:start;
+    }
+
+    .facts div{
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+
+    .facts b{
+      display:block;
+      font:400 38px/1.15 var(--serif);
+      margin-bottom:4px;
+    }
+
+    .facts span{
+      font-size:13px;
+      color:var(--mute);
+    }
+
+    /* Selected Work */
+    .works{
+      border-top:1px solid var(--line);
+    }
+
+    .wk{
+      display:grid;
+      grid-template-columns:1fr 1.15fr;
+      gap:40px;
+      padding:36px 0;
+      border-bottom:1px solid var(--line);
+      transition:border-color .3s;
+    }
+
+    .wk:hover{
+      border-bottom-color:var(--accent);
+    }
+
+    .wk h3{
+      font:400 clamp(24px,2.8vw,32px)/1.25 var(--serif);
+      margin:0;
+    }
+
+    .wk .small{
+      margin-top:10px;
+    }
+
+    .wk p{
+      margin:0;
+      color:var(--mute);
+      font-size:15px;
+    }
+
+    .wk ul{
+      margin:14px 0 0;
+      padding:0;
+      list-style:none;
+      font-size:14px;
+      color:var(--mute);
+    }
+
+    .wk li{
+      padding-left:18px;
+      position:relative;
+      margin-bottom:4px;
+    }
+
+    .wk li:before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.9em;
+      width:8px;
+      height:1px;
+      background:var(--accent);
+    }
+
+    /* Experience */
+    .tl{
+      padding-left:0;
+    }
+
+    .job{
+      padding-bottom:56px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .job:last-child{
+      padding-bottom:0;
+      border-bottom:0;
+    }
+
+    .job h3{
+      font:400 28px/1.3 var(--serif);
+      margin:6px 0 4px;
+    }
+
+    .job ul{
+      margin:14px 0 0;
+      padding:0;
+      list-style:none;
+      color:var(--mute);
+      font-size:15px;
+      max-width:38em;
+    }
+
+    .job li{
+      margin-bottom:6px;
+    }
+
+    /* Recognition & Capabilities */
+    .aw{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .aw div{
+      padding:32px 24px 32px 0;
+      border-right:1px solid var(--line);
+    }
+
+    .aw div+div{
+      padding-left:24px;
+    }
+
+    .aw div:last-child{
+      border-right:0;
+    }
+
+    .aw b{
+      display:block;
+      font:400 28px/1.25 var(--serif);
+      margin-bottom:8px;
+    }
+
+    .aw span{
+      font-size:13px;
+      color:var(--mute);
+      line-height:1.6;
+      display:block;
+    }
+
+    .sk{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:48px;
+    }
+
+    .sk h3{
+      font:400 12px var(--sans);
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      margin:0 0 18px;
+      display:flex;
+      gap:12px;
+      align-items:baseline;
+      border-bottom:1px solid var(--line);
+      padding-bottom:14px;
+    }
+
+    .sk h3 i{
+      font:400 16px var(--serif);
+      color:var(--accent);
+      font-style:italic;
+    }
+
+    .sk ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      font-size:14.5px;
+      color:var(--mute);
+    }
+
+    .sk li{
+      padding:5px 0;
+      transition:color .2s;
+    }
+
+    .sk li:hover{
+      color:var(--ink);
+    }
+
+    .cert{
+      margin-top:64px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:0 56px;
+    }
+
+    .cert div{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+      font-size:14px;
+      color:var(--mute);
+    }
+
+    .cert b{
+      font-weight:400;
+      color:var(--ink);
+    }
+
+    .ed div{
+      display:grid;
+      grid-template-columns:1fr 2fr auto;
+      gap:20px;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+      align-items:baseline;
+    }
+
+    .ed div:first-child{
+      border-top:1px solid var(--line);
+    }
+
+    .ed b{
+      font:400 24px var(--serif);
+    }
+
+    .ed span{
+      color:var(--mute);
+      font-size:14px;
+    }
+
+    .ed em{
+      font-style:normal;
+      font-size:13px;
+      color:var(--accent);
+    }
+
+    /* Contact */
+    .contact{
+      text-align:center;
+      padding:150px 0 110px;
+    }
+
+    .contact h2{
+      font:400 clamp(34px,4.8vw,60px)/1.2 var(--serif);
+      margin:0 auto 20px;
+      max-width:15em;
+    }
+
+    .contact p{
+      color:var(--mute);
+      max-width:30em;
+      margin:0 auto 52px;
+    }
+
+    .ring{
+      width:156px;
+      height:156px;
+      border-radius:50%;
+      border:1px solid var(--line);
+      display:inline-grid;
+      place-items:center;
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      transition:border-color .3s,background .3s,color .3s;
+    }
+
+    .ring:hover{
+      border-color:var(--accent);
+      background:var(--accent);
+      color:#fff;
+    }
+
+    .mail{
+      margin-top:44px;
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      flex-wrap:wrap;
+      font-size:13px;
+      color:var(--mute);
+      letter-spacing:.06em;
+    }
+
+    .mail button{
+      color:var(--mute);
+      border-bottom:1px solid var(--line);
+      transition:color .2s;
+    }
+
+    .mail button:hover,
+    .mail a:hover{
+      color:var(--ink);
+    }
+
+    footer{
+      padding:0 0 44px;
+      font-size:11px;
+      letter-spacing:.22em;
+      color:var(--mute);
+      text-align:center;
+    }
+
+    @media(max-width:900px){
+      .topbar{
+        padding:18px 20px;
+      }
+
+      .topnav{
+        gap:16px;
+      }
+
+      .ab,
+      .wk{
+        grid-template-columns:1fr;
+        gap:26px;
+      }
+
+      .sk{
+        grid-template-columns:1fr;
+        gap:32px;
+      }
+
+      .aw{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .aw div:nth-child(2){
+        border-right:0;
+      }
+
+      .aw div:nth-child(3){
+        padding-left:0;
+      }
+
+      .aw div:nth-child(n+3){
+        border-top:1px solid var(--line);
+      }
+
+      .cert{
+        grid-template-columns:1fr;
+      }
+
+      .ed div{
+        grid-template-columns:1fr auto;
+      }
+
+      .ed span{
+        grid-column:1/3;
+        order:3;
+      }
+
+      section{
+        padding:90px 0;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,
+      *:before,
+      *:after{
+        transition-duration:.01ms!important;
+      }
+
+      .rv{
+        opacity:1;
+        transform:none;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="prog"><i id="prog"></i></div>
-
-<aside class="rail l">
-  <span class="mark" aria-hidden="true"></span>
-  <span class="v small">ROSE MARY</span>
-  <span></span>
-</aside>
-
-<aside class="rail r">
-  <span></span>
-  <nav aria-label="Sections">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
-    <a href="#capabilities">Capabilities</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <button class="mode" id="mode" aria-label="Switch between dark and paper themes">Paper</button>
-</aside>
-
-<main>
-<header class="hero" id="top">
-  <div class="w">
-    <p class="small">Business Growth &nbsp;·&nbsp; B2B Sales &nbsp;·&nbsp; Strategy &nbsp;—&nbsp; Chennai</p>
-    <h1>Turning opportunities into <em>meaningful</em> growth.</h1>
-    <p class="desc">I’m Rose Mary, a business growth and stakeholder management professional. I enjoy building relationships, exploring markets and creating commercial opportunities.</p>
-    <div class="cta">
-      <a class="lnk" href="#work">View Selected Work</a>
-      <a class="lnk" href="Rose_Mary_Resume.pdf" download>Download Résumé</a>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Rose Mary</span>
     </div>
-  </div>
-</header>
 
-<section id="about"><div class="w">
-  <div class="head rv"><span class="num">01</span><h2>About</h2></div>
-  <div class="ab">
-    <div class="rv">
-      <p>My journey began in science and evolved into management. With a postgraduate management education and experience across business development, startup operations, sales enablement and stakeholder coordination, I bring an analytical perspective to business challenges.</p>
-      <p>I enjoy understanding how businesses work, identifying opportunities, building professional relationships and turning ideas into action. I’m particularly interested in technology-driven businesses, AI solutions and strategic partnerships.</p>
-    </div>
-    <div class="facts rv">
-      <div><b>50%</b><span>Cost reduction through vendor negotiations at MEI</span></div>
-      <div><b>7 of 324</b><span>BSmart Case Study Competition</span></div>
-      <div><b>6.91 / 8</b><span>PGDM CGPA</span></div>
-    </div>
-  </div>
-</div></section>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<section id="work"><div class="w">
-  <div class="head rv"><span class="num">02</span><h2>Selected Work</h2></div>
-  <div class="works rv">
-    <article class="wk">
-      <div><h3>National Product Catalogue</h3><div class="small">B2B Sales Enablement · MEI</div></div>
-      <div>
-        <p>Developed a national product catalogue to make product information more accessible and useful for B2B sales teams across India.</p>
-        <ul>
-          <li>Organised product information into a clear catalogue format.</li>
-          <li>Supported sales teams with a standardised product reference.</li>
-        </ul>
+    <button class="mode" id="mode" aria-label="Switch between dark and paper themes">Paper</button>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="w">
+        <p class="small">Business Growth &nbsp;·&nbsp; B2B Sales &nbsp;·&nbsp; Strategy &nbsp;—&nbsp; Chennai</p>
+
+        <h1>Turning opportunities into <em>meaningful</em> growth.</h1>
+
+        <p class="desc">
+          I’m Rose Mary, a business growth and stakeholder management professional.
+          I enjoy building relationships, exploring markets and creating commercial opportunities.
+        </p>
+
+        <div class="cta">
+          <a class="lnk" href="#work">View Selected Work</a>
+          <a class="lnk" href="Rose_Mary_Resume.pdf" download>Download Résumé</a>
+        </div>
       </div>
-    </article>
-    <article class="wk">
-      <div><h3>MEI Mithra Loyalty Program</h3><div class="small">Customer Engagement · MEI</div></div>
-      <div>
-        <p>Designed a customer loyalty initiative to support engagement and retention.</p>
-        <ul>
-          <li>Contributed to the design of the loyalty program concept.</li>
-          <li>Coordinated with vendors, agencies and internal stakeholders.</li>
-        </ul>
+    </section>
+
+    <section id="about">
+      <div class="w">
+        <div class="head rv">
+          <span class="num">01</span>
+          <h2>About</h2>
+        </div>
+
+        <div class="ab">
+          <div class="rv">
+            <p>
+              My journey began in science and evolved into management. With a postgraduate management education
+              and experience across business development, startup operations, sales enablement and stakeholder
+              coordination, I bring an analytical perspective to business challenges.
+            </p>
+
+            <p>
+              I enjoy understanding how businesses work, identifying opportunities, building professional
+              relationships and turning ideas into action. I’m particularly interested in technology-driven
+              businesses, AI solutions and strategic partnerships.
+            </p>
+          </div>
+
+          <div class="facts rv">
+            <div>
+              <b>50%</b>
+              <span>Cost reduction through vendor negotiations at MEI</span>
+            </div>
+
+            <div>
+              <b>7 of 324</b>
+              <span>BSmart Case Study Competition</span>
+            </div>
+
+            <div>
+              <b>6.91 / 8</b>
+              <span>PGDM CGPA</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </article>
-    <article class="wk">
-      <div><h3>Client Demonstration Workflow</h3><div class="small">Pre-Sales · Mediphore</div></div>
-      <div>
-        <p>Helped standardise how client demonstrations are prepared and delivered.</p>
-        <ul>
-          <li>Brought greater consistency to the client demo process.</li>
-          <li>Prepared client presentations and business pitch decks.</li>
-        </ul>
+    </section>
+
+    <section id="work">
+      <div class="w">
+        <div class="head rv">
+          <span class="num">02</span>
+          <h2>Selected Work</h2>
+        </div>
+
+        <div class="works rv">
+          <article class="wk">
+            <div>
+              <h3>National Product Catalogue</h3>
+              <div class="small">B2B Sales Enablement · MEI</div>
+            </div>
+
+            <div>
+              <p>Developed a national product catalogue to make product information more accessible and useful for B2B sales teams across India.</p>
+
+              <ul>
+                <li>Organised product information into a clear catalogue format.</li>
+                <li>Supported sales teams with a standardised product reference.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="wk">
+            <div>
+              <h3>MEI Mithra Loyalty Program</h3>
+              <div class="small">Customer Engagement · MEI</div>
+            </div>
+
+            <div>
+              <p>Designed a customer loyalty initiative to support engagement and retention.</p>
+
+              <ul>
+                <li>Contributed to the design of the loyalty program concept.</li>
+                <li>Coordinated with vendors, agencies and internal stakeholders.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="wk">
+            <div>
+              <h3>Client Demonstration Workflow</h3>
+              <div class="small">Pre-Sales · Mediphore</div>
+            </div>
+
+            <div>
+              <p>Helped standardise how client demonstrations are prepared and delivered.</p>
+
+              <ul>
+                <li>Brought greater consistency to the client demo process.</li>
+                <li>Prepared client presentations and business pitch decks.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="wk">
+            <div>
+              <h3>Food Startup Conclave</h3>
+              <div class="small">Startup Ecosystem · MCC-MRF Innovation Park</div>
+            </div>
+
+            <div>
+              <p>Supported event planning and stakeholder engagement among founders, investors and ecosystem partners.</p>
+
+              <ul>
+                <li>Supported outreach and coordination for the conclave.</li>
+                <li>Researched and profiled prospective industry partners and startups.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
-    </article>
-    <article class="wk">
-      <div><h3>Food Startup Conclave</h3><div class="small">Startup Ecosystem · MCC-MRF Innovation Park</div></div>
-      <div>
-        <p>Supported event planning and stakeholder engagement among founders, investors and ecosystem partners.</p>
-        <ul>
-          <li>Supported outreach and coordination for the conclave.</li>
-          <li>Researched and profiled prospective industry partners and startups.</li>
-        </ul>
+    </section>
+
+    <section id="experience">
+      <div class="w">
+        <div class="head rv">
+          <span class="num">03</span>
+          <h2>Experience</h2>
+        </div>
+
+        <div class="tl">
+          <div class="job rv">
+            <div class="small">May 2026 — Present</div>
+            <h3>General Management</h3>
+            <div class="small">Mediphore Systems and Technologies Pvt. Ltd.</div>
+
+            <ul>
+              <li>Coordinate vendor sourcing, negotiations and supplier relationships.</li>
+              <li>Facilitate cross-border partner discussions and commercial coordination.</li>
+              <li>Prepare client presentations and business pitch decks.</li>
+              <li>Helped standardise client demonstration workflows.</li>
+            </ul>
+          </div>
+
+          <div class="job rv">
+            <div class="small">April — June 2025</div>
+            <h3>Digital Marketing &amp; Sales Enablement Intern</h3>
+            <div class="small">Madras Engineering Industries</div>
+
+            <ul>
+              <li>Developed a national product catalogue for B2B sales teams.</li>
+              <li>Achieved a 50% cost reduction through vendor negotiations.</li>
+              <li>Designed the MEI Mithra Loyalty Program.</li>
+              <li>Coordinated with vendors, agencies and internal stakeholders.</li>
+            </ul>
+          </div>
+
+          <div class="job rv">
+            <div class="small">October 2024 — March 2025</div>
+            <h3>Outreach &amp; Business Development Support</h3>
+            <div class="small">MCC-MRF Innovation Park</div>
+
+            <ul>
+              <li>Researched and profiled prospective industry partners and startups.</li>
+              <li>Supported market mapping and outreach initiatives.</li>
+              <li>Coordinated the Food Startup Conclave.</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </article>
-  </div>
-</div></section>
+    </section>
 
-<section id="experience"><div class="w">
-  <div class="head rv"><span class="num">03</span><h2>Experience</h2></div>
-  <div class="tl" id="tl">
-    <div class="job rv">
-      <div class="small">May 2026 — Present</div>
-      <h3>General Management</h3>
-      <div class="small">Mediphore Systems and Technologies Pvt. Ltd.</div>
-      <ul>
-        <li>Coordinate vendor sourcing, negotiations and supplier relationships.</li>
-        <li>Facilitate cross-border partner discussions and commercial coordination.</li>
-        <li>Prepare client presentations and business pitch decks.</li>
-        <li>Helped standardise client demonstration workflows.</li>
-      </ul>
-    </div>
-    <div class="job rv">
-      <div class="small">April — June 2025</div>
-      <h3>Digital Marketing &amp; Sales Enablement Intern</h3>
-      <div class="small">Madras Engineering Industries</div>
-      <ul>
-        <li>Developed a national product catalogue for B2B sales teams.</li>
-        <li>Achieved a 50% cost reduction through vendor negotiations.</li>
-        <li>Designed the MEI Mithra Loyalty Program.</li>
-        <li>Coordinated with vendors, agencies and internal stakeholders.</li>
-      </ul>
-    </div>
-    <div class="job rv">
-      <div class="small">October 2024 — March 2025</div>
-      <h3>Outreach &amp; Business Development Support</h3>
-      <div class="small">MCC-MRF Innovation Park</div>
-      <ul>
-        <li>Researched and profiled prospective industry partners and startups.</li>
-        <li>Supported market mapping and outreach initiatives.</li>
-        <li>Coordinated the Food Startup Conclave.</li>
-      </ul>
-    </div>
-  </div>
-</div></section>
+    <section id="recognition">
+      <div class="w">
+        <div class="head rv">
+          <span class="num">04</span>
+          <h2>Recognition</h2>
+        </div>
 
-<section id="recognition"><div class="w">
-  <div class="head rv"><span class="num">04</span><h2>Recognition</h2></div>
-  <div class="aw rv">
-    <div><b>Finalist</b><span>AIMA Chanakya Management Game, All India</span></div>
-    <div><b>7 of 324</b><span>BSmart Case Study Competition</span></div>
-    <div><b>Second</b><span>From Idea to Impact, MCC BTSB</span></div>
-    <div><b>Winner</b><span>IPL 2.0, Kerala Startup Mission zonal competition</span></div>
-  </div>
-</div></section>
+        <div class="aw rv">
+          <div>
+            <b>Finalist</b>
+            <span>AIMA Chanakya Management Game, All India</span>
+          </div>
 
-<section id="capabilities"><div class="w">
-  <div class="head rv"><span class="num">05</span><h2>Capabilities</h2></div>
-  <div class="sk rv">
-    <div>
-      <h3><i>I.</i>Commercial</h3>
-      <ul>
-        <li>B2B business development</li>
-        <li>Lead generation</li>
-        <li>Client acquisition</li>
-        <li>Partnership building</li>
-        <li>Stakeholder management</li>
-        <li>Vendor negotiation</li>
-        <li>Pre-sales coordination</li>
-        <li>Sales enablement</li>
-        <li>Client presentations</li>
-      </ul>
-    </div>
-    <div>
-      <h3><i>II.</i>Strategy</h3>
-      <ul>
-        <li>Market research</li>
-        <li>Competitor analysis</li>
-      </ul>
-    </div>
-    <div>
-      <h3><i>III.</i>Analytics and Tools</h3>
-      <ul>
-        <li>Power BI</li>
-        <li>Tableau</li>
-        <li>Google Analytics</li>
-        <li>MS Office</li>
-      </ul>
-    </div>
-  </div>
-  <div class="cert rv">
-    <div><b>NPTEL: Market Research and Analysis (All India Topper)</b><span>2025</span></div>
-    <div><b>NPTEL: Innovation, Business Model and Entrepreneurship (Elite)</b><span>2025</span></div>
-    <div><b>AI Accelerator Course</b><span>In progress</span></div>
-    <div><b>Excel and Statistics, Udemy</b><span>2024</span></div>
-  </div>
-</div></section>
+          <div>
+            <b>7 of 324</b>
+            <span>BSmart Case Study Competition</span>
+          </div>
 
-<section id="education"><div class="w">
-  <div class="head rv"><span class="num">06</span><h2>Education</h2></div>
-  <div class="ed rv">
-    <div><b>PGDM</b><span>MCC Boyd Tandon School of Business, 2026</span><em>6.91 / 8 CGPA</em></div>
-    <div><b>M.Sc. Zoology</b><span>St. Teresa’s College, 2024</span><em>4 / 5 CGPA</em></div>
-    <div><b>B.Sc. Zoology</b><span>Madras Christian College, 2022</span><em>8.3 / 10 CGPA</em></div>
-  </div>
-</div></section>
+          <div>
+            <b>Second</b>
+            <span>From Idea to Impact, MCC BTSB</span>
+          </div>
 
-<section class="contact" id="contact"><div class="w">
-  <h2 class="rv">Have something interesting in mind?</h2>
-  <p class="rv">Interested in business growth, technology, partnerships or new opportunities? I’d be happy to connect.</p>
-  <a class="ring rv" href="mailto:rosemary27062001@gmail.com?subject=Hello%20Rose%20Mary"><span>Say Hello</span></a>
-  <div class="mail rv">
-    <a href="mailto:rosemary27062001@gmail.com">rosemary27062001@gmail.com</a>
-    <button id="copy">Copy</button>
-    <a href="https://linkedin.com/in/rose-mary-a0a037282" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</div></section>
-</main>
+          <div>
+            <b>Winner</b>
+            <span>IPL 2.0, Kerala Startup Mission zonal competition</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<footer>© <span id="yr">2026</span> ROSE MARY</footer>
+    <section id="capabilities">
+      <div class="w">
+        <div class="head rv">
+          <span class="num">05</span>
+          <h2>Capabilities</h2>
+        </div>
 
-<script>
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const root=document.documentElement;
-$("#yr").textContent=new Date().getFullYear();
+        <div class="sk rv">
+          <div>
+            <h3><i>I.</i>Commercial</h3>
 
-// Theme toggle (Dark by default, Paper on toggle)
-let t=null;try{t=localStorage.getItem("rm-theme")}catch(e){}
-if(t)root.dataset.theme=t;
-const mode=$("#mode");
-const sync=()=>mode.textContent=root.dataset.theme==="paper"?"Dark":"Paper";
-sync();
-mode.addEventListener("click",()=>{
-  const n=root.dataset.theme==="paper"?"dark":"paper";
-  root.dataset.theme=n;
-  try{localStorage.setItem("rm-theme",n)}catch(e){}
-  sync();
-});
+            <ul>
+              <li>B2B business development</li>
+              <li>Lead generation</li>
+              <li>Client acquisition</li>
+              <li>Partnership building</li>
+              <li>Stakeholder management</li>
+              <li>Vendor negotiation</li>
+              <li>Pre-sales coordination</li>
+              <li>Sales enablement</li>
+              <li>Client presentations</li>
+            </ul>
+          </div>
 
-// Subtle scroll progress & timeline line
-const prog=$("#prog"),tl=$("#tl");
-function onScroll(){
-  const m=root.scrollHeight-innerHeight;
-  prog.style.transform=`scaleY(${m>0?scrollY/m:0})`;
-  const r=tl.getBoundingClientRect(),p=Math.min(Math.max((innerHeight*.6-r.top)/r.height,0),1);
-  tl.style.setProperty("--p",p);
-}
-addEventListener("scroll",onScroll,{passive:true});
-onScroll();
+          <div>
+            <h3><i>II.</i>Strategy</h3>
 
-// Active navigation link
-const links=$$(".rail nav a");
-const so=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){
-    const id=e.target.id==="recognition"?"experience":e.target.id==="education"?"capabilities":e.target.id;
-    links.forEach(a=>a.classList.toggle("on",a.hash==="#"+id));
-  }
-}),{rootMargin:"-45% 0px -50% 0px"});
-$$("main section[id]").forEach(s=>so.observe(s));
+            <ul>
+              <li>Market research</li>
+              <li>Competitor analysis</li>
+            </ul>
+          </div>
 
-// Gentle fade-in reveal
-const ro=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;
-  e.target.classList.add("in");
-  ro.unobserve(e.target);
-}),{threshold:.15});
-$$(".rv").forEach(el=>ro.observe(el));
+          <div>
+            <h3><i>III.</i>Analytics and Tools</h3>
 
-// Copy email
-$("#copy").addEventListener("click",async e=>{
-  const b=e.currentTarget;
-  try{
-    await navigator.clipboard.writeText("rosemary27062001@gmail.com");
-    b.textContent="Copied";
-  }catch(err){
-    b.textContent="Select to copy";
-  }
-  setTimeout(()=>b.textContent="Copy",2000);
-});
-</script>
-</body>
-</html>
+            <ul>
+              <li>Power BI</li>
+              <li>Tableau</li>
+              <li>Google Analytics</li>
+              <li>MS Office</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cert rv">
+          <div>
+            <b>NPTEL: Market Research and Analysis (All India Topper)</b>
+            <span>2025</span>
+          </div>
+
+          <div>
+            <b>NPTEL: Innovation, Business Model and Entrepreneurship (Elite)</b>
+            <span>2025</span>
+          </div>
+
+          <div>
+            <b>AI Accelerator Course</b>
+            <span>In progress</span>
+          </div>
+
+          <div>
+            <b>Excel and Statistics, Udemy</b>
+            <span>2024</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="w">
+        <div class="head rv">
+          <span class="num">06</span>
+          <h2>Education</h2>
+        </div>
+
+        <div class="ed rv">
+          <div>
+            <b>PGDM</b>
+            <span>MCC Boyd Tandon School of Business, 2026</span>
+            <em>6.91 / 8 CGPA</em>
+          </div>
+
+          <div>
+            <b>M.Sc. Zoology</b>
+            <span>St. Teresa’s College, 2024</span>
+            <em>4 / 5 CGPA</em>
+          </div>
+
+          <div>
+            <b>B.Sc. Zoology</b>
+            <span>Madras Christian College, 2022</span>
+            <em>8.3 / 10 CGPA</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div
