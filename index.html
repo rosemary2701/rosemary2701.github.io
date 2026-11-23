@@ -28,6 +28,30 @@ footer{padding:24px 0;color:var(--muted);font:10px var(--mono);display:flex;just
 @media(max-width:850px){.hero{grid-template-columns:1fr;min-height:auto;padding:90px 0 70px}.hero-aside{display:none}.hero:before,.hero:after{right:-300px}.about-grid,.skills-layout,.contact-grid{grid-template-columns:1fr;gap:35px}.experience-layout{grid-template-columns:1fr;gap:20px}.experience-tabs{display:grid;grid-template-columns:repeat(3,1fr)}.exp-tab{border-left:0;border-bottom:2px solid var(--line);padding:13px 8px}.exp-tab.active{border-bottom-color:var(--green)}.award-grid{grid-template-columns:repeat(2,1fr)}.navright{gap:15px}.nav a{font-size:9px}}
 @media(max-width:600px){.wrap{width:min(100% - 36px,1180px)}.nav{height:66px}.navright{display:none;position:absolute;top:66px;left:0;right:0;background:var(--bg);padding:22px 20px 28px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navright.open{display:flex}.menu{display:block;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:39px;height:39px;border-radius:50%}.hero{padding:70px 0 60px}.availability{margin-bottom:23px}h1{font-size:clamp(49px,15vw,75px)}.hero-desc{font-size:14px}.actions .btn{padding:13px 14px;font-size:9px}.section-head{display:block;margin-bottom:30px}.section-head h2{font-size:43px}.section-intro{margin-top:18px}.about-grid{gap:30px}.about-copy{font-size:15px}.metric{min-height:125px;padding:17px}.metric strong{font-size:36px}.project-grid{grid-template-columns:1fr}.project{min-height:240px;padding:23px}.project h3{font-size:26px}.experience-tabs{grid-template-columns:1fr}.exp-tab{border-bottom:0;border-left:2px solid var(--line);text-align:left}.exp-tab.active{border-left-color:var(--green)}.exp-panel{padding:24px}.exp-panel h3{font-size:27px}.award-grid{grid-template-columns:1fr 1fr}.award{padding:19px 15px;min-height:160px}.award strong{font-size:28px}.cert-list{grid-template-columns:1fr}.edu-row{grid-template-columns:1fr auto;gap:6px}.edu-row span{grid-column:1}.edu-row .score{grid-column:2;grid-row:1/3}.contact{padding:75px 0}.contact-grid{gap:28px}footer{flex-direction:column}.side-note{display:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* Interactive enhancements */
+.hero-interactive{margin-top:14px;padding:18px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+.hero-interactive .mini-label{font:9px var(--mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
+.focus-switch{display:flex;gap:6px;flex-wrap:wrap}
+.focus-switch button{border:1px solid var(--line);background:transparent;color:var(--muted);padding:8px 10px;font:9px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.focus-switch button.active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.focus-detail{padding-top:13px;min-height:78px}
+.focus-detail strong{display:block;font-size:15px;letter-spacing:-.03em;margin-bottom:5px}
+.focus-detail p{margin:0;color:var(--muted);font-size:11px;line-height:1.65}
+.project-tools{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 18px;flex-wrap:wrap}
+.project-search{flex:1;min-width:220px;max-width:390px;padding:12px 15px;border:1px solid var(--line);background:var(--bg);color:var(--ink);outline:none;font-size:12px}
+.project-search:focus{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 12%,transparent)}
+.result-count{font:10px var(--mono);color:var(--muted);letter-spacing:.08em}
+.project.empty{display:none}
+.project{transform-origin:center}
+.project .project-hint{font:9px var(--mono);letter-spacing:.08em;color:var(--muted);margin-top:15px;opacity:0;transform:translateY(4px);transition:.2s}
+.project:hover .project-hint,.project:focus-visible .project-hint{opacity:1;transform:none}
+.project:focus-visible,.filter:focus-visible,.exp-tab:focus-visible,.skill-chip:focus-visible,.theme:focus-visible,.btn:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,15px);padding:12px 17px;background:var(--ink);color:var(--bg);font:10px var(--mono);letter-spacing:.06em;z-index:1500;opacity:0;pointer-events:none;transition:.25s;box-shadow:var(--shadow)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.modal-panel{overscroll-behavior:contain}
+@media(max-width:600px){.project-tools{align-items:stretch}.project-search{max-width:none;width:100%}.result-count{width:100%}.hero-interactive{margin-top:18px}}
+
 </style>
 </head>
 <body>
@@ -49,7 +73,20 @@ footer{padding:24px 0;color:var(--muted);font:10px var(--mono);display:flex;just
     <p class="hero-desc">I'm Rose Mary — a business growth and stakeholder management professional interested in building relationships, exploring markets and creating commercial opportunities.</p>
     <div class="actions"><a class="btn" href="#work">EXPLORE MY WORK <span class="arrow">↗</span></a><a class="btn ghost" href="Rose_Mary_Resume.pdf" download>DOWNLOAD RESUME <span class="arrow">↓</span></a></div>
   </div>
-  <aside class="hero-aside"><div class="orbit-card"><div class="orbit-top"><span>INDEPENDENT THINKER</span><span>01—26</span></div><div class="orbit-center"><strong>R.</strong><span>CURIOUS BY NATURE</span></div><div class="orbit-bottom"><strong>Growth,<br>with intent.</strong><span>CHENNAI<br>INDIA</span></div></div><div class="side-note">A little science. A lot of curiosity.<br>And a practical approach to business.</div></aside>
+  <aside class="hero-aside"><div class="orbit-card"><div class="orbit-top"><span>INDEPENDENT THINKER</span><span>01—26</span></div><div class="orbit-center"><strong>R.</strong><span>CURIOUS BY NATURE</span></div><div class="orbit-bottom"><strong>Growth,<br>with intent.</strong><span>CHENNAI<br>INDIA</span></div></div><div class="side-note">A little science. A lot of curiosity.<br>And a practical approach to business.</div>
+  <div class="hero-interactive">
+    <div class="mini-label">EXPLORE MY WORKING STYLE</div>
+    <div class="focus-switch" role="group" aria-label="Explore capability areas">
+      <button class="active" data-focus="commercial">COMMERCIAL</button>
+      <button data-focus="strategy">STRATEGY</button>
+      <button data-focus="analytics">ANALYTICS</button>
+    </div>
+    <div class="focus-detail" id="focusDetail" aria-live="polite">
+      <strong>Building relationships that move work forward</strong>
+      <p>B2B development, lead generation, client acquisition, partnerships and stakeholder coordination.</p>
+    </div>
+  </div>
+</aside>
 </section>
 <div class="marquee"><div class="marquee-track" aria-hidden="true"><span>Business development <b>✳</b></span><span>Strategic partnerships <b>✳</b></span><span>Sales enablement <b>✳</b></span><span>Market research <b>✳</b></span><span>Stakeholder management <b>✳</b></span><span>Business development <b>✳</b></span><span>Strategic partnerships <b>✳</b></span><span>Sales enablement <b>✳</b></span><span>Market research <b>✳</b></span><span>Stakeholder management <b>✳</b></span></div></div>
 <section class="wrap" id="about"><div class="section-head reveal"><div><div class="kicker">A LITTLE ABOUT ME</div><h2>Curious by nature.<br><i>Commercially minded.</i></h2></div><p class="section-intro">From science to management, I bring an analytical lens to business challenges and a people-first approach to getting things moving.</p></div>
@@ -57,12 +94,13 @@ footer{padding:24px 0;color:var(--muted);font:10px var(--mono);display:flex;just
 <div class="about-side reveal"><div class="metric feature"><strong data-count="50" data-suffix="%">0%</strong><span>Cost reduction through vendor negotiations at MEI</span></div><div class="metric"><strong data-count="7" data-suffix="th">0th</strong><span>BSmart Case Study Competition — among 324</span></div><div class="metric"><strong data-count="6.91" data-decimals="2">0.00</strong><span>PGDM CGPA out of 8</span></div><div class="metric"><strong data-count="3">0</strong><span>Professional experience settings</span></div></div></div>
 </section>
 <section class="work" id="work"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">SELECTED WORK</div><h2>Ideas into <i>execution.</i></h2></div><p class="section-intro">A selection of projects where coordination, research and commercial thinking met practical execution. Select a card to explore.</p></div>
+<div class="project-tools reveal"><input class="project-search" id="projectSearch" type="search" placeholder="Search projects, skills or keywords..." aria-label="Search projects"><span class="result-count" id="projectCount" aria-live="polite">4 PROJECTS</span></div>
 <div class="filters reveal" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all">ALL WORK</button><button class="filter" data-filter="sales">SALES ENABLEMENT</button><button class="filter" data-filter="engagement">CUSTOMER ENGAGEMENT</button><button class="filter" data-filter="operations">OPERATIONS</button><button class="filter" data-filter="ecosystem">STARTUP ECOSYSTEM</button></div>
 <div class="project-grid reveal">
-<article class="project" data-category="sales" data-project="catalogue" tabindex="0" role="button" aria-label="Open National Product Catalogue case study"><span class="project-no">PROJECT 01 / B2B SALES ENABLEMENT</span><h3>National Product Catalogue</h3><p>Making product information more accessible and useful for B2B sales teams across India.</p><span class="tag">Research · Content coordination · Sales support</span></article>
-<article class="project" data-category="engagement" data-project="mithra" tabindex="0" role="button" aria-label="Open MEI Mithra Loyalty Program case study"><span class="project-no">PROJECT 02 / CUSTOMER ENGAGEMENT</span><h3>MEI Mithra Loyalty Program</h3><p>A customer loyalty initiative designed to support engagement and retention.</p><span class="tag">Program design · Customer engagement</span></article>
-<article class="project" data-category="operations" data-project="demo" tabindex="0" role="button" aria-label="Open Client Demonstration Workflow case study"><span class="project-no">PROJECT 03 / CLIENT ENGAGEMENT</span><h3>Client Demonstration Workflow</h3><p>Helping standardise how client demonstrations are prepared and delivered.</p><span class="tag">Pre-sales · Process standardisation</span></article>
-<article class="project" data-category="ecosystem" data-project="conclave" tabindex="0" role="button" aria-label="Open Food Startup Conclave case study"><span class="project-no">PROJECT 04 / STARTUP ECOSYSTEM</span><h3>Food Startup Conclave</h3><p>Supporting event planning and stakeholder engagement across the startup ecosystem.</p><span class="tag">Outreach · Event coordination · Partnerships</span></article>
+<article class="project" data-category="sales" data-project="catalogue" tabindex="0" role="button" aria-label="Open National Product Catalogue case study"><span class="project-no">PROJECT 01 / B2B SALES ENABLEMENT</span><h3>National Product Catalogue</h3><p>Making product information more accessible and useful for B2B sales teams across India.</p><span class="tag">Research · Content coordination · Sales support</span><span class="project-hint">OPEN CASE STUDY ↗</span></article>
+<article class="project" data-category="engagement" data-project="mithra" tabindex="0" role="button" aria-label="Open MEI Mithra Loyalty Program case study"><span class="project-no">PROJECT 02 / CUSTOMER ENGAGEMENT</span><h3>MEI Mithra Loyalty Program</h3><p>A customer loyalty initiative designed to support engagement and retention.</p><span class="tag">Program design · Customer engagement</span><span class="project-hint">OPEN CASE STUDY ↗</span></article>
+<article class="project" data-category="operations" data-project="demo" tabindex="0" role="button" aria-label="Open Client Demonstration Workflow case study"><span class="project-no">PROJECT 03 / CLIENT ENGAGEMENT</span><h3>Client Demonstration Workflow</h3><p>Helping standardise how client demonstrations are prepared and delivered.</p><span class="tag">Pre-sales · Process standardisation</span><span class="project-hint">OPEN CASE STUDY ↗</span></article>
+<article class="project" data-category="ecosystem" data-project="conclave" tabindex="0" role="button" aria-label="Open Food Startup Conclave case study"><span class="project-no">PROJECT 04 / STARTUP ECOSYSTEM</span><h3>Food Startup Conclave</h3><p>Supporting event planning and stakeholder engagement across the startup ecosystem.</p><span class="tag">Outreach · Event coordination · Partnerships</span><span class="project-hint">OPEN CASE STUDY ↗</span></article>
 </div></div></section>
 <section class="wrap" id="experience"><div class="section-head reveal"><div><div class="kicker">THE JOURNEY SO FAR</div><h2>Where I've <i>contributed.</i></h2></div><p class="section-intro">Choose a role to see the work behind the title. Each chapter added a different perspective.</p></div>
 <div class="experience-layout reveal"><div class="experience-tabs" role="tablist" aria-label="Experience"><button class="exp-tab active" role="tab" aria-selected="true" data-exp="0"><span>General Management</span>MAY 2026 — PRESENT</button><button class="exp-tab" role="tab" aria-selected="false" data-exp="1"><span>Digital Marketing & Sales Enablement</span>APR — JUN 2025</button><button class="exp-tab" role="tab" aria-selected="false" data-exp="2"><span>Outreach & Business Development</span>OCT 2024 — MAR 2025</button></div>
@@ -78,6 +116,7 @@ footer{padding:24px 0;color:var(--muted);font:10px var(--mono);display:flex;just
 </main>
 <footer class="wrap"><span>© <span id="year"></span> ROSE MARY</span><span>BUILT WITH CURIOSITY & INTENTION</span><a href="#home">BACK TO TOP ↑</a></footer>
 <button class="backtop" id="backtop" aria-label="Back to top">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-panel"><button class="modal-close" id="modalClose" aria-label="Close project details">×</button><div class="kicker" id="modalKicker">PROJECT</div><h3 id="modalTitle"></h3><div id="modalBody"></div></div></div>
 <script>
 const $=(s,root=document)=>root.querySelector(s), $$=(s,root=document)=>[...root.querySelectorAll(s)];
@@ -91,6 +130,18 @@ updateClock();setInterval(updateClock,30000);$("#year").textContent=new Date().g
 // Rotating hero phrases
 const phrases=["meaningful growth.","better connections.","commercial impact.","ideas into action."];let phraseIndex=0;
 setInterval(()=>{const el=$("#rotating");el.style.opacity=0;setTimeout(()=>{phraseIndex=(phraseIndex+1)%phrases.length;el.textContent=phrases[phraseIndex];el.style.opacity=1},280)},3200);$("#rotating").style.transition="opacity .28s";
+// Interactive capability explorer in the hero
+const focusCopy={
+ commercial:{title:"Building relationships that move work forward",body:"B2B development, lead generation, client acquisition, partnerships and stakeholder coordination."},
+ strategy:{title:"Turning research into practical direction",body:"Market research, competitor analysis, outreach planning and structured business execution."},
+ analytics:{title:"Bringing an analytical lens to decisions",body:"Power BI, Tableau, Google Analytics, Excel and a foundation in scientific research."}
+};
+$$("[data-focus]").forEach(btn=>btn.addEventListener("click",()=>{
+  $$("[data-focus]").forEach(b=>b.classList.toggle("active",b===btn));
+  const item=focusCopy[btn.dataset.focus],panel=$("#focusDetail");
+  panel.style.opacity=0;
+  setTimeout(()=>{panel.innerHTML=`<strong>${item.title}</strong><p>${item.body}</p>`;panel.style.opacity=1},140);
+}));
 // Mobile nav
 const nav=$("#navright"),menu=$("#menu");menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.textContent=open?"×":"☰"});$$(".navright a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.textContent="☰"}));
 // Scroll progress, back to top, active nav
@@ -108,11 +159,37 @@ const projectData={
  demo:{kicker:"CLIENT ENGAGEMENT · MEDIPHORE",title:"Client Demonstration Workflow",intro:"Worked on standardising client demonstration workflows at Mediphore.",items:["Helped bring greater consistency to the client demo process.","Prepared client presentations and business pitch decks.","Coordinated inputs to support a smoother client-facing experience."],note:"A process-focused project supporting clearer and more consistent client engagement."},
  conclave:{kicker:"STARTUP ECOSYSTEM · MCC-MRF INNOVATION PARK",title:"Food Startup Conclave",intro:"Supported event planning and stakeholder engagement among founders, investors and ecosystem partners.",items:["Supported outreach and coordination for the conclave.","Researched and profiled prospective industry partners and startups.","Contributed to stakeholder engagement across the startup ecosystem."],note:"An opportunity to work at the intersection of outreach, partnerships and startup ecosystem development."}
 };
-const modal=$("#projectModal");function openProject(key){const p=projectData[key];if(!p)return;$("#modalKicker").textContent=p.kicker;$("#modalTitle").textContent=p.title;$("#modalBody").innerHTML=`<p>${p.intro}</p><ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul><p><strong>Focus:</strong> ${p.note}</p>`;modal.classList.add("open");document.body.style.overflow="hidden";$("#modalClose").focus()}
-function closeProject(){modal.classList.remove("open");document.body.style.overflow=""}
+const modal=$("#projectModal");let lastProjectTrigger=null;function openProject(key){const p=projectData[key];if(!p)return;lastProjectTrigger=document.activeElement;$("#modalKicker").textContent=p.kicker;$("#modalTitle").textContent=p.title;$("#modalBody").innerHTML=`<p>${p.intro}</p><ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul><p><strong>Focus:</strong> ${p.note}</p>`;modal.classList.add("open");document.body.style.overflow="hidden";$("#modalClose").focus()}
+function closeProject(){modal.classList.remove("open");document.body.style.overflow="";if(lastProjectTrigger)lastProjectTrigger.focus()}
 $$(".project").forEach(card=>{card.addEventListener("click",()=>openProject(card.dataset.project));card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openProject(card.dataset.project)}})});
 $("#modalClose").addEventListener("click",closeProject);modal.addEventListener("click",e=>{if(e.target===modal)closeProject()});addEventListener("keydown",e=>{if(e.key==="Escape")closeProject()});
-$$(".filter").forEach(btn=>btn.addEventListener("click",()=>{$$(".filter").forEach(b=>b.classList.toggle("active",b===btn));$$(".project").forEach(card=>card.classList.toggle("hidden",btn.dataset.filter!=="all"&&card.dataset.category!==btn.dataset.filter))}));
+let activeProjectFilter="all";
+const projectSearch=$("#projectSearch");
+function filterProjects(){
+ const q=projectSearch.value.trim().toLowerCase();
+ let shown=0;
+ $$(".project").forEach(card=>{
+  const categoryOk=activeProjectFilter==="all"||card.dataset.category===activeProjectFilter;
+  const textOk=(card.textContent+" "+(projectData[card.dataset.project]?.intro||"")).toLowerCase().includes(q);
+  const visible=categoryOk&&textOk;
+  card.classList.toggle("hidden",!visible);
+  if(visible)shown++;
+ });
+ $("#projectCount").textContent=`${shown} ${shown===1?"PROJECT":"PROJECTS"} FOUND`;
+}
+$$(".filter").forEach(btn=>btn.addEventListener("click",()=>{
+ activeProjectFilter=btn.dataset.filter;
+ $$(".filter").forEach(b=>b.classList.toggle("active",b===btn));
+ filterProjects();
+}));
+projectSearch.addEventListener("input",filterProjects);
+document.addEventListener("keydown",e=>{
+ if(e.key==="/"&&!["INPUT","TEXTAREA"].includes(document.activeElement.tagName)&&!e.ctrlKey&&!e.metaKey){
+  e.preventDefault();projectSearch.focus();document.querySelector("#work").scrollIntoView({behavior:"smooth"});
+ }
+ if(e.key==="Escape"&&document.activeElement===projectSearch){projectSearch.value="";filterProjects();projectSearch.blur()}
+});
+filterProjects();
 // Experience tabs
 const experience=[
 {date:"MAY 2026 — PRESENT",role:"General Management",company:"Mediphore Systems and Technologies Pvt. Ltd.",points:["Coordinate vendor sourcing, negotiations and supplier relationships.","Facilitate cross-border partner discussions and commercial coordination.","Prepare client presentations and business pitch decks.","Helped standardise client demonstration workflows."]},
@@ -124,7 +201,8 @@ $$(".exp-tab").forEach(btn=>btn.addEventListener("click",()=>{const item=experie
 let skillGroup="all";const search=$("#skillSearch");function filterSkills(){const q=search.value.trim().toLowerCase();$$(".skill-pill").forEach(p=>{const groupOk=skillGroup==="all"||p.dataset.group===skillGroup;const textOk=p.textContent.toLowerCase().includes(q);p.classList.toggle("hide",!(groupOk&&textOk))})}
 $$(".skill-chip").forEach(btn=>btn.addEventListener("click",()=>{skillGroup=btn.dataset.skill;$$(".skill-chip").forEach(b=>b.classList.toggle("active",b===btn));filterSkills()}));search.addEventListener("input",filterSkills);
 // Copy email
-$("#copyEmail").addEventListener("click",async()=>{const btn=$("#copyEmail");try{await navigator.clipboard.writeText("rosemary27062001@gmail.com");btn.textContent="COPIED ✓"}catch(e){btn.textContent="SELECT EMAIL";const range=document.createRange();range.selectNodeContents($("#email"));const sel=getSelection();sel.removeAllRanges();sel.addRange(range)}setTimeout(()=>btn.textContent="COPY EMAIL",2200)});
+function showToast(message){const toast=$("#toast");toast.textContent=message;toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove("show"),2400)}
+$("#copyEmail").addEventListener("click",async()=>{const btn=$("#copyEmail");try{await navigator.clipboard.writeText("rosemary27062001@gmail.com");btn.textContent="COPIED ✓";showToast("EMAIL ADDRESS COPIED")}catch(e){btn.textContent="SELECT EMAIL";const range=document.createRange();range.selectNodeContents($("#email"));const sel=getSelection();sel.removeAllRanges();sel.addRange(range);showToast("SELECT THE EMAIL ADDRESS TO COPY")}setTimeout(()=>btn.textContent="COPY EMAIL",2200)});
 // Subtle cursor glow on devices with fine pointers
 if(matchMedia("(pointer:fine)").matches){addEventListener("pointermove",e=>{const g=$("#glow");g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"})}
 </script>
