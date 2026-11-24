@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -22,7 +21,6 @@
   --accent:#cf6048;
   --serif:"Cormorant Garamond",Georgia,serif;
   --sans:"DM Sans",sans-serif;
-  --jp:"Noto Serif JP",serif;
   color-scheme:dark;
 }
 
@@ -78,6 +76,7 @@ button {
 }
 
 .muted {color:var(--mute)}
+.serif {font-family:var(--serif)}
 
 .eyebrow {
   font-size:10px;
@@ -86,9 +85,7 @@ button {
   color:var(--mute);
 }
 
-.serif {font-family:var(--serif)}
-
-/* Background details */
+/* Background texture */
 
 body:before {
   content:"";
@@ -135,7 +132,7 @@ body:before {
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:25px;
+  gap:23px;
 }
 
 .rail nav a {
@@ -232,7 +229,7 @@ body:before {
 }
 
 .hero-desc {
-  max-width:360px;
+  max-width:390px;
   font-size:14px;
   color:var(--mute);
 }
@@ -257,56 +254,13 @@ body:before {
   color:var(--accent);
 }
 
-.hero-stamp {
-  position:absolute;
-  right:7%;
-  top:17%;
-  width:180px;
-  height:180px;
-  border:1px solid var(--line);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  opacity:.8;
-  animation:rotate 35s linear infinite;
-}
-
-.hero-stamp span {
-  font:400 55px var(--jp);
-  color:var(--accent);
-}
-
-@keyframes rotate {
-  to {transform:rotate(360deg)}
-}
-
-.hero-side {
+.hero-note {
   position:absolute;
   right:8%;
   bottom:13%;
-  writing-mode:vertical-rl;
   color:var(--mute);
-  font:12px var(--jp);
-  letter-spacing:.3em;
-}
-
-/* Decorative divider */
-
-.divider-art {
-  display:flex;
-  align-items:center;
-  gap:15px;
-  margin:30px 0;
-  color:var(--accent);
-  font:14px var(--jp);
-}
-
-.divider-art:before,
-.divider-art:after {
-  content:"";
-  height:1px;
-  background:var(--line);
-  flex:1;
+  font:italic 20px var(--serif);
+  opacity:.7;
 }
 
 /* General sections */
@@ -340,10 +294,7 @@ section {
 
 /* Reveal */
 
-.rv {
-  opacity:1;
-  transform:none;
-}
+.rv {opacity:1;transform:none}
 
 html.js .rv {
   opacity:0;
@@ -368,12 +319,6 @@ html.js .rv.in {
 .about-intro {
   position:sticky;
   top:100px;
-}
-
-.about-intro .jp-label {
-  font:13px var(--jp);
-  color:var(--accent);
-  letter-spacing:.2em;
 }
 
 .about-intro h3 {
@@ -452,7 +397,7 @@ html.js .rv.in {
   to {opacity:1;transform:none}
 }
 
-/* Journey */
+/* Experience timeline */
 
 .timeline {
   margin-left:12px;
@@ -522,12 +467,24 @@ html.js .rv.in {
   font-size:12px;
 }
 
-.entry p {
+.entry p,
+.entry li {
   color:var(--mute);
   font-size:13px;
-  max-width:600px;
+}
+
+.entry p {
+  max-width:650px;
   margin:14px 0;
 }
+
+.entry ul {
+  padding-left:18px;
+  max-width:700px;
+  margin:12px 0;
+}
+
+.entry li {margin:7px 0}
 
 .tags {
   display:flex;
@@ -542,6 +499,44 @@ html.js .rv.in {
   font-size:9px;
   letter-spacing:.1em;
   text-transform:uppercase;
+}
+
+/* Education */
+
+.subheading {
+  font:400 32px var(--serif);
+  margin:85px 0 25px;
+}
+
+.education-list {
+  border-top:1px solid var(--line);
+}
+
+.education-item {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  align-items:center;
+  padding:19px 5px;
+  border-bottom:1px solid var(--line);
+}
+
+.education-item h4 {
+  font:400 21px var(--serif);
+  margin:0;
+}
+
+.education-item p {
+  font-size:12px;
+  color:var(--mute);
+  margin:3px 0 0;
+}
+
+.education-item .score {
+  color:var(--accent);
+  font-size:11px;
+  text-align:right;
+  white-space:nowrap;
 }
 
 /* Selected work */
@@ -583,8 +578,44 @@ html.js .rv.in {
   font-size:13px;
 }
 
-.work-item ul {
-  padding-left:17px;
+.work-item ul {padding-left:17px}
+.work-item li {margin:7px 0}
+
+/* Achievements */
+
+.achievement-list {
+  border-top:1px solid var(--line);
+}
+
+.achievement {
+  display:grid;
+  grid-template-columns:75px 1fr;
+  gap:25px;
+  padding:27px 10px;
+  border-bottom:1px solid var(--line);
+  transition:background .3s,padding .3s;
+}
+
+.achievement:hover {
+  background:var(--surface);
+  padding-left:20px;
+}
+
+.achievement-number {
+  font:italic 30px var(--serif);
+  color:var(--accent);
+}
+
+.achievement h3 {
+  font:400 25px/1.2 var(--serif);
+  margin:0 0 7px;
+}
+
+.achievement p {
+  color:var(--mute);
+  font-size:13px;
+  margin:0;
+  max-width:650px;
 }
 
 /* Capabilities */
@@ -646,17 +677,27 @@ html.js .rv.in {
 }
 
 .skill:hover i {opacity:1}
-
 .hidden {display:none!important}
 
-.certificates {
+/* Certifications and languages */
+
+.info-columns {
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0 40px;
-  margin-top:55px;
+  grid-template-columns:1.3fr .7fr;
+  gap:65px;
+  margin-top:75px;
 }
 
-.certificates div {
+.info-columns h3 {
+  font:400 32px var(--serif);
+  margin:0 0 20px;
+}
+
+.certificates {
+  border-top:1px solid var(--line);
+}
+
+.certificate {
   display:flex;
   justify-content:space-between;
   gap:15px;
@@ -666,9 +707,27 @@ html.js .rv.in {
   color:var(--mute);
 }
 
-.certificates b {
+.certificate b {
   font-weight:400;
   color:var(--ink);
+}
+
+.language-list {
+  border-top:1px solid var(--line);
+}
+
+.language {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  border-bottom:1px solid var(--line);
+  padding:15px 0;
+  font-size:12px;
+}
+
+.language span:last-child {
+  color:var(--mute);
+  text-align:right;
 }
 
 /* Contact */
@@ -676,12 +735,6 @@ html.js .rv.in {
 .contact {
   text-align:center;
   padding:150px 0 110px;
-}
-
-.contact .jp-label {
-  color:var(--accent);
-  font:13px var(--jp);
-  letter-spacing:.3em;
 }
 
 .contact h2 {
@@ -716,7 +769,7 @@ html.js .rv.in {
   background:var(--accent);
   border-color:var(--accent);
   color:white;
-  transform:rotate(-10deg);
+  transform:translateY(-5px);
 }
 
 .contact-links {
@@ -771,13 +824,10 @@ footer {
 
   .skill-grid {grid-template-columns:1fr 1fr}
 
-  .hero-stamp {
-    width:120px;
-    height:120px;
-    right:4%;
+  .info-columns {
+    grid-template-columns:1fr;
+    gap:45px;
   }
-
-  .hero-stamp span {font-size:38px}
 }
 
 @media(max-width:600px) {
@@ -789,7 +839,6 @@ footer {
 
   .rail {width:32px}
   .progress {left:32px}
-
   .rail-name {font-size:8px}
 
   .hero {
@@ -801,17 +850,7 @@ footer {
     font-size:clamp(55px,13vw,78px);
   }
 
-  .hero-stamp {
-    width:85px;
-    height:85px;
-    top:12%;
-    right:5%;
-    opacity:.45;
-  }
-
-  .hero-stamp span {font-size:28px}
-
-  .hero-side {display:none}
+  .hero-note {display:none}
 
   .hero-bottom {
     flex-direction:column;
@@ -824,7 +863,12 @@ footer {
 
   section {padding:80px 0}
 
-  .section-heading {margin-bottom:35px}
+  .section-heading {
+    margin-bottom:35px;
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+  }
 
   .section-heading h2 {font-size:43px}
 
@@ -835,9 +879,21 @@ footer {
 
   .skill-grid {grid-template-columns:1fr}
 
-  .certificates {grid-template-columns:1fr}
-
   .about-intro h3 {font-size:36px}
+
+  .achievement {
+    grid-template-columns:40px 1fr;
+    gap:15px;
+  }
+
+  .achievement h3 {font-size:22px}
+
+  .education-item {
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+
+  .education-item .score {text-align:left}
 
   .contact {padding:100px 0 75px}
 }
@@ -874,10 +930,11 @@ footer {
     <a href="#about">About</a>
     <a href="#journey">Journey</a>
     <a href="#work">Work</a>
+    <a href="#achievements">Achievements</a>
     <a href="#capabilities">Skills</a>
     <a href="#contact">Contact</a>
   </nav>
-  <button class="mode" id="mode">Paper</button>
+  <button class="mode" id="mode" type="button">Paper</button>
 </aside>
 
 <main>
@@ -885,11 +942,6 @@ footer {
 <!-- HERO -->
 
 <header class="hero" id="top">
-
-  <div class="hero-stamp" aria-hidden="true">
-    <span>余白</span>
-  </div>
-
   <div class="hero-inner">
 
     <div class="hero-top eyebrow rv">
@@ -904,7 +956,6 @@ footer {
     </h1>
 
     <div class="hero-bottom rv">
-
       <p class="hero-desc">
         I’m Rose Mary — a business growth and stakeholder management professional building commercial relationships, market understanding and practical business outcomes.
       </p>
@@ -913,13 +964,11 @@ footer {
         <a class="text-link" href="#journey">Explore my journey ↗</a>
         <a class="text-link" href="Rose_Mary_Resume.pdf" download>Download résumé ↗</a>
       </div>
-
     </div>
 
   </div>
 
-  <div class="hero-side">可能性を形にする</div>
-
+  <div class="hero-note">Curiosity into opportunity.</div>
 </header>
 
 <!-- ABOUT -->
@@ -929,14 +978,12 @@ footer {
 
   <div class="section-heading rv">
     <h2>About me.</h2>
-    <span>01 / A little introduction</span>
+    <span>A little introduction</span>
   </div>
 
   <div class="about-layout">
 
     <div class="about-intro rv">
-      <div class="jp-label">私について</div>
-
       <h3>
         A different<br>
         perspective.<br>
@@ -969,7 +1016,6 @@ footer {
       </div>
 
       <div class="about-panel" id="aboutPanel" aria-live="polite">
-
         <h3>From science to business.</h3>
 
         <p>
@@ -981,7 +1027,6 @@ footer {
           <span class="fact"><b>02</b> PGDM · 2026</span>
           <span class="fact"><b>03</b> Business growth</span>
         </div>
-
       </div>
 
     </div>
@@ -991,105 +1036,189 @@ footer {
 </div>
 </section>
 
-<!-- JOURNEY -->
+<!-- EXPERIENCE & EDUCATION -->
 
 <section id="journey">
 <div class="w">
 
   <div class="section-heading rv">
     <h2>The journey.</h2>
-    <span>02 / Experience & education</span>
+    <span>Experience & education</span>
   </div>
+
+  <h3 class="subheading rv">Professional experience</h3>
 
   <div class="timeline" id="timeline">
 
-    <div class="entry rv">
-      <div class="date">2022</div>
-      <h3>B.Sc. Zoology</h3>
-      <div class="org">Madras Christian College</div>
-      <p>Built a foundation in research, analysis and structured problem-solving.</p>
-      <div class="tags">
-        <span>Research</span>
-        <span>Analysis</span>
-        <span>8.3 / 10 CGPA</span>
-      </div>
-    </div>
-
-    <div class="entry rv">
-      <div class="date">2024</div>
-      <h3>M.Sc. Zoology</h3>
-      <div class="org">St. Teresa’s College</div>
-      <p>Deepened analytical thinking and transitioned toward management-focused opportunities.</p>
-      <div class="tags">
-        <span>Research</span>
-        <span>4 / 5 CGPA</span>
-      </div>
-    </div>
-
-    <div class="entry rv">
-      <div class="date">Oct 2024 — Mar 2025</div>
-      <h3>Outreach & Business Development Support</h3>
-      <div class="org">MCC-MRF Innovation Park</div>
-      <p>Supported startup ecosystem engagement, market mapping and partner outreach for the Food Startup Conclave.</p>
-      <div class="tags">
-        <span>Market Mapping</span>
-        <span>Outreach</span>
-        <span>Stakeholder Engagement</span>
-      </div>
-    </div>
-
-    <div class="entry rv">
-      <div class="date">Apr — Jun 2025</div>
-      <h3>Digital Marketing & Sales Enablement Intern</h3>
-      <div class="org">Madras Engineering Industries</div>
-      <p>Created a national B2B product catalogue, designed a customer loyalty concept and supported vendor coordination.</p>
-      <div class="tags">
-        <span>B2B Sales</span>
-        <span>Sales Enablement</span>
-        <span>Vendor Negotiation</span>
-      </div>
-    </div>
-
-    <div class="entry rv">
-      <div class="date">2026</div>
-      <h3>PGDM</h3>
-      <div class="org">MCC Boyd Tandon School of Business</div>
-      <p>Completed postgraduate management education with a focus on business strategy, commercial thinking and entrepreneurship.</p>
-      <div class="tags">
-        <span>Management</span>
-        <span>Strategy</span>
-        <span>6.91 / 8 CGPA</span>
-      </div>
-    </div>
+    <!-- MEDIPHORE -->
 
     <div class="entry rv">
       <div class="date">May 2026 — Present</div>
       <h3>General Management</h3>
       <div class="org">Mediphore Systems and Technologies Pvt. Ltd.</div>
-      <p>Supporting commercial coordination, vendor relationships, cross-border partner discussions and client-facing pre-sales material.</p>
+
+      <ul>
+        <li>Prepare and deliver client presentations and product demonstrations, communicating product capabilities and business value.</li>
+        <li>Standardised the client demonstration workflow to improve consistency across client-facing interactions and support sales conversion.</li>
+        <li>Coordinate with clients, partners and internal teams to understand business requirements and facilitate commercial discussions.</li>
+        <li>Support commercial documentation, agreement coordination and stakeholder follow-ups across regional markets.</li>
+        <li>Conduct market and competitor research across India and Southeast Asia to support business development and market expansion.</li>
+      </ul>
+
       <div class="tags">
         <span>General Management</span>
-        <span>Partnerships</span>
-        <span>Pre-Sales</span>
         <span>Client Demos</span>
+        <span>Business Development</span>
+        <span>Market Research</span>
+      </div>
+    </div>
+
+    <!-- MEI -->
+
+    <div class="entry rv">
+      <div class="date">April 2025 — June 2025</div>
+      <h3>Digital Marketing & Sales Enablement Intern</h3>
+      <div class="org">Madras Engineering Industries (MEI)</div>
+
+      <ul>
+        <li>Developed a national product catalogue to help B2B sales teams communicate product information consistently across India.</li>
+        <li>Conducted market and competitor analysis to support product positioning and sales enablement.</li>
+        <li>Designed the MEI Mithra Loyalty Program to support dealer engagement, customer retention and long-term business relationships.</li>
+        <li>Coordinated with internal teams, vendors and design agencies to deliver sales materials aligned with customer requirements.</li>
+        <li>Negotiated with vendors and coordinated commercial arrangements, contributing to a 50% reduction in costs.</li>
+        <li>Supported point-of-sale initiatives to strengthen dealer engagement and regional brand visibility.</li>
+      </ul>
+
+      <div class="tags">
+        <span>B2B Marketing</span>
+        <span>Sales Enablement</span>
+        <span>Vendor Negotiation</span>
+        <span>50% Cost Reduction</span>
+      </div>
+    </div>
+
+    <!-- MCC MRF -->
+
+    <div class="entry rv">
+      <div class="date">October 2024 — March 2025</div>
+      <h3>Outreach & Business Development Support</h3>
+      <div class="org">MCC-MRF Innovation Park</div>
+
+      <ul>
+        <li>Researched and profiled prospective industry partners and startups to support lead identification and business outreach.</li>
+        <li>Supported partner communication and coordination with founders, investors and industry stakeholders.</li>
+        <li>Collaborated with internal teams to coordinate outreach initiatives and maintain stakeholder relationships.</li>
+      </ul>
+
+      <div class="tags">
+        <span>Business Outreach</span>
+        <span>Startup Ecosystem</span>
+        <span>Stakeholder Engagement</span>
       </div>
     </div>
 
   </div>
+
+  <!-- EDUCATION -->
+
+  <h3 class="subheading rv">Education</h3>
+
+  <div class="education-list rv">
+
+    <div class="education-item">
+      <div>
+        <h4>PGDM — Post Graduate Diploma in Management</h4>
+        <p>MCC Boyd Tandon School of Business</p>
+      </div>
+      <div class="score">2026 · 6.91 / 8 CGPA</div>
+    </div>
+
+    <div class="education-item">
+      <div>
+        <h4>M.Sc. Zoology</h4>
+        <p>St. Teresa's College</p>
+      </div>
+      <div class="score">2024 · 4 / 5 CGPA</div>
+    </div>
+
+    <div class="education-item">
+      <div>
+        <h4>B.Sc. Zoology</h4>
+        <p>Madras Christian College</p>
+      </div>
+      <div class="score">2022 · 8.3 / 10 CGPA</div>
+    </div>
+
+    <div class="education-item">
+      <div>
+        <h4>Higher Secondary Certificate</h4>
+        <p>Vijayagiri Public School</p>
+      </div>
+      <div class="score">2019 · 84%</div>
+    </div>
+
+    <div class="education-item">
+      <div>
+        <h4>Secondary School Certificate</h4>
+        <p>Mar Thoma Public School</p>
+      </div>
+      <div class="score">2017 · 9.8 / 10</div>
+    </div>
+
+  </div>
+
 </div>
 </section>
 
-<!-- WORK -->
+<!-- SELECTED WORK -->
 
 <section id="work">
 <div class="w">
 
   <div class="section-heading rv">
     <h2>Selected work.</h2>
-    <span>03 / Things I've contributed to</span>
+    <span>Projects & contributions</span>
   </div>
 
   <div class="work-list">
+
+    <!-- MEDIPHORE FIRST -->
+
+    <article class="work-item rv">
+      <div>
+        <h3>Client Demonstration Workflow</h3>
+        <div class="label">Pre-Sales · Mediphore</div>
+      </div>
+      <div>
+        <p>
+          Standardised the approach to preparing and delivering product demonstrations, helping create a more consistent client-facing experience.
+        </p>
+        <ul>
+          <li>Prepared client presentations and product demonstrations.</li>
+          <li>Improved consistency across the demonstration workflow.</li>
+          <li>Communicated product capabilities and business value to prospective clients.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work-item rv">
+      <div>
+        <h3>Commercial & Market Development</h3>
+        <div class="label">Business Development · Mediphore</div>
+      </div>
+      <div>
+        <p>
+          Supported business development through market research, stakeholder coordination and commercial discussions across regional markets.
+        </p>
+        <ul>
+          <li>Conducted market and competitor research across India and Southeast Asia.</li>
+          <li>Coordinated with clients, partners and internal teams.</li>
+          <li>Supported commercial documentation and agreement coordination.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- MEI SECOND -->
 
     <article class="work-item rv">
       <div>
@@ -1097,10 +1226,13 @@ footer {
         <div class="label">B2B Sales Enablement · MEI</div>
       </div>
       <div>
-        <p>Created a standardised national product reference to make product information more accessible for B2B sales teams.</p>
+        <p>
+          Developed a national product catalogue to help B2B sales teams communicate product information consistently across India.
+        </p>
         <ul>
-          <li>Organised product information into a clear catalogue format.</li>
-          <li>Supported sales teams with a consistent product reference.</li>
+          <li>Organised product information into a structured catalogue.</li>
+          <li>Supported consistent product communication for sales teams.</li>
+          <li>Conducted market and competitor analysis to support product positioning.</li>
         </ul>
       </div>
     </article>
@@ -1111,43 +1243,94 @@ footer {
         <div class="label">Customer Engagement · MEI</div>
       </div>
       <div>
-        <p>Designed a customer loyalty initiative to support engagement and retention.</p>
+        <p>
+          Designed a customer loyalty initiative to strengthen dealer engagement, customer retention and long-term business relationships.
+        </p>
         <ul>
-          <li>Contributed to the loyalty program concept.</li>
+          <li>Contributed to the loyalty program concept and design.</li>
           <li>Coordinated with vendors, agencies and internal stakeholders.</li>
+          <li>Supported dealer engagement and customer-facing initiatives.</li>
         </ul>
       </div>
     </article>
 
-    <article class="work-item rv">
-      <div>
-        <h3>Client Demonstration Workflow</h3>
-        <div class="label">Pre-Sales · Mediphore</div>
-      </div>
-      <div>
-        <p>Helped create a more consistent approach to preparing and delivering client demonstrations.</p>
-        <ul>
-          <li>Standardised the client demo process.</li>
-          <li>Prepared presentations and business pitch decks.</li>
-        </ul>
-      </div>
-    </article>
+    <!-- MCC MRF LAST -->
 
     <article class="work-item rv">
       <div>
-        <h3>Food Startup Conclave</h3>
-        <div class="label">Startup Ecosystem · MCC-MRF</div>
+        <h3>Startup & Industry Outreach</h3>
+        <div class="label">Startup Ecosystem · MCC-MRF Innovation Park</div>
       </div>
       <div>
-        <p>Supported event planning and stakeholder engagement across founders, investors and ecosystem partners.</p>
+        <p>
+          Supported outreach and stakeholder coordination to strengthen engagement across the startup and industry ecosystem.
+        </p>
         <ul>
-          <li>Supported outreach and coordination.</li>
           <li>Researched prospective industry partners and startups.</li>
+          <li>Supported communication with founders, investors and industry stakeholders.</li>
+          <li>Contributed to outreach coordination and relationship management.</li>
         </ul>
       </div>
     </article>
 
   </div>
+</div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+
+<section id="achievements">
+<div class="w">
+
+  <div class="section-heading rv">
+    <h2>Achievements.</h2>
+    <span>Recognition & milestones</span>
+  </div>
+
+  <div class="achievement-list">
+
+    <article class="achievement rv">
+      <div class="achievement-number">01</div>
+      <div>
+        <h3>All India Finalist — Chanakya Management Game</h3>
+        <p>
+          All India Management Association (AIMA). Recognised for business acumen, strategic thinking and decision-making.
+        </p>
+      </div>
+    </article>
+
+    <article class="achievement rv">
+      <div class="achievement-number">02</div>
+      <div>
+        <h3>7th Position — All India Case Study Competition</h3>
+        <p>
+          Marketing category, Business Standard's BSmart. Ranked among 324 shortlisted entries from over 2,000 submissions.
+        </p>
+      </div>
+    </article>
+
+    <article class="achievement rv">
+      <div class="achievement-number">03</div>
+      <div>
+        <h3>2nd Place — Sustainable Clothing Line Pitch</h3>
+        <p>
+          "From Idea to Impact", MCC Boyd Tandon School of Business, 2024.
+        </p>
+      </div>
+    </article>
+
+    <article class="achievement rv">
+      <div class="achievement-number">04</div>
+      <div>
+        <h3>Winner — Innovators Premier League (IPL 2.0)</h3>
+        <p>
+          Institutional Round winner, selected for zonal-level shortlisting by Kerala Startup Mission, 2023.
+        </p>
+      </div>
+    </article>
+
+  </div>
+
 </div>
 </section>
 
@@ -1158,29 +1341,27 @@ footer {
 
   <div class="section-heading rv">
     <h2>What I bring.</h2>
-    <span>04 / Capabilities & tools</span>
+    <span>Capabilities, tools & certifications</span>
   </div>
 
   <div class="skill-filter rv">
-
     <button class="chip on" data-filter="all">Everything</button>
     <button class="chip" data-filter="commercial">Commercial</button>
     <button class="chip" data-filter="strategy">Strategy</button>
     <button class="chip" data-filter="analytics">Analytics & Tools</button>
-
   </div>
 
   <div class="skill-grid rv">
 
     <div class="skill" data-type="commercial">B2B business development<i>↗</i></div>
     <div class="skill" data-type="commercial">Lead generation<i>↗</i></div>
-    <div class="skill" data-type="commercial">Client acquisition<i>↗</i></div>
+    <div class="skill" data-type="commercial">Client presentations<i>↗</i></div>
     <div class="skill" data-type="commercial">Partnership building<i>↗</i></div>
     <div class="skill" data-type="commercial">Stakeholder management<i>↗</i></div>
     <div class="skill" data-type="commercial">Vendor negotiation<i>↗</i></div>
     <div class="skill" data-type="commercial">Pre-sales coordination<i>↗</i></div>
     <div class="skill" data-type="commercial">Sales enablement<i>↗</i></div>
-    <div class="skill" data-type="commercial">Client presentations<i>↗</i></div>
+    <div class="skill" data-type="commercial">Commercial coordination<i>↗</i></div>
 
     <div class="skill" data-type="strategy">Market research<i>↗</i></div>
     <div class="skill" data-type="strategy">Competitor analysis<i>↗</i></div>
@@ -1194,26 +1375,64 @@ footer {
 
   </div>
 
-  <div class="certificates rv">
+  <!-- CERTIFICATIONS AND LANGUAGES -->
 
-    <div>
-      <b>NPTEL: Market Research and Analysis — All India Topper</b>
-      <span>2025</span>
+  <div class="info-columns">
+
+    <div class="rv">
+      <h3>Certifications.</h3>
+
+      <div class="certificates">
+
+        <div class="certificate">
+          <b>AI Accelerator Course</b>
+          <span>In progress</span>
+        </div>
+
+        <div class="certificate">
+          <b>NPTEL — Market Research and Analysis (All India Topper)</b>
+          <span>2025</span>
+        </div>
+
+        <div class="certificate">
+          <b>NPTEL — Innovation, Business Model and Entrepreneurship (Elite)</b>
+          <span>2025</span>
+        </div>
+
+        <div class="certificate">
+          <b>Excel and Statistics — Udemy</b>
+          <span>2024</span>
+        </div>
+
+      </div>
     </div>
 
-    <div>
-      <b>NPTEL: Innovation, Business Model and Entrepreneurship — Elite</b>
-      <span>2025</span>
-    </div>
+    <div class="rv">
+      <h3>Languages.</h3>
 
-    <div>
-      <b>AI Accelerator Course</b>
-      <span>In progress</span>
-    </div>
+      <div class="language-list">
 
-    <div>
-      <b>Excel and Statistics, Udemy</b>
-      <span>2024</span>
+        <div class="language">
+          <span>Malayalam</span>
+          <span>Native</span>
+        </div>
+
+        <div class="language">
+          <span>English</span>
+          <span>Professional</span>
+        </div>
+
+        <div class="language">
+          <span>Hindi</span>
+          <span>Professional</span>
+        </div>
+
+        <div class="language">
+          <span>Tamil</span>
+          <span>Basic conversational</span>
+        </div>
+
+      </div>
     </div>
 
   </div>
@@ -1226,7 +1445,7 @@ footer {
 <section class="contact" id="contact">
 <div class="w">
 
-  <div class="jp-label rv">ご縁を大切に</div>
+  <div class="eyebrow rv">Let's connect</div>
 
   <h2 class="rv">
     Let's create something <em>meaningful.</em>
@@ -1241,13 +1460,9 @@ footer {
   </a>
 
   <div class="contact-links rv">
-
     <a href="mailto:rosemary27062001@gmail.com">rosemary27062001@gmail.com</a>
-
     <button id="copy" type="button">Copy email</button>
-
     <a href="https://linkedin.com/in/rose-mary-a0a037282" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-
   </div>
 
 </div>
@@ -1269,10 +1484,10 @@ footer {
 
   root.classList.add("js");
 
-  // Year
+  // Current year
   $("#yr").textContent = new Date().getFullYear();
 
-  // Theme
+  // Theme switch
   const mode = $("#mode");
 
   try {
@@ -1300,7 +1515,7 @@ footer {
     syncTheme();
   });
 
-  // Scroll progress
+  // Scroll progress and timeline progress
   const progress = $("#progress");
   const timeline = $("#timeline");
   let ticking = false;
@@ -1337,7 +1552,7 @@ footer {
   addEventListener("resize", updateScroll);
   updateScroll();
 
-  // Section navigation
+  // Active navigation
   const navLinks = $$(".rail nav a");
 
   if ("IntersectionObserver" in window) {
