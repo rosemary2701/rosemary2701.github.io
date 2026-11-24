@@ -4,723 +4,920 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Rose Mary — business growth, B2B sales, partnerships and strategy.">
-<title>Rose Mary | Business Growth, Partnerships & Strategy</title>
+<meta name="description" content="Rose Mary — Business Growth, B2B Sales, Partnerships and Strategy.">
+<meta name="theme-color" content="#101111">
+<title>Rose Mary | Business & Growth</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg:#151714;
-  --surface:#1d201c;
-  --surface2:#242822;
-  --text:#e9e8df;
-  --muted:#a5a89b;
-  --accent:#b7c49b;
-  --accent2:#d0d9b8;
-  --line:rgba(233,232,223,.15);
-  --serif:'Cormorant Garamond',serif;
-  --sans:'DM Sans',sans-serif;
+  --bg:#101111;
+  --surface:#171918;
+  --ink:#e9e5dc;
+  --mute:#92938d;
+  --line:#30312e;
+  --accent:#cf6048;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"DM Sans",sans-serif;
+  color-scheme:dark;
 }
 
-body.light {
-  --bg:#f3f0e8;
-  --surface:#eae6dc;
-  --surface2:#dfdbd0;
-  --text:#272923;
-  --muted:#66695f;
-  --accent:#66764f;
-  --accent2:#4e5e3d;
-  --line:rgba(39,41,35,.17);
+:root[data-theme="paper"] {
+  --bg:#eeeae0;
+  --surface:#e5e0d4;
+  --ink:#20211f;
+  --mute:#77766e;
+  --line:#d1cbbd;
+  --accent:#b74734;
+  color-scheme:light;
 }
 
-* { box-sizing:border-box; margin:0; padding:0; }
+* {box-sizing:border-box}
 
-html { scroll-behavior:smooth; scroll-padding-top:80px; }
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:50px;
+}
 
 body {
+  margin:0;
   background:var(--bg);
-  color:var(--text);
-  font-family:var(--sans);
-  font-size:17px;
-  line-height:1.85;
-  transition:background .3s,color .3s;
+  color:var(--ink);
+  font:300 17px/1.8 var(--sans);
+  overflow-x:hidden;
+  transition:background .4s,color .4s;
 }
 
-a { color:inherit; text-decoration:none; }
+a {color:inherit;text-decoration:none}
 
-button { font:inherit; }
+button {
+  font:inherit;
+  color:inherit;
+  cursor:pointer;
+  border:0;
+  background:none;
+}
 
-::selection { background:var(--accent); color:var(--bg); }
+::selection {
+  background:var(--accent);
+  color:white;
+}
 
-/* NAVIGATION */
+:focus-visible {
+  outline:1px solid var(--accent);
+  outline-offset:5px;
+}
+
+.w {
+  width:min(1000px,calc(100% - 150px));
+  margin:auto;
+}
+
+.muted {color:var(--mute)}
+.serif {font-family:var(--serif)}
+
+.eyebrow {
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.25em;
+  color:var(--mute);
+}
+
+/* Background texture */
+
+body:before {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:50;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+
+/* Side navigation */
+
+.rail {
+  position:fixed;
+  top:0;
+  bottom:0;
+  width:65px;
+  z-index:40;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:32px 0;
+}
+
+.rail.left {left:0}
+.rail.right {right:0}
+
+.rail-mark {
+  width:7px;
+  height:7px;
+  background:var(--accent);
+  border-radius:50%;
+}
+
+.rail-name {
+  writing-mode:vertical-rl;
+  font-size:10px;
+  letter-spacing:.3em;
+}
+
+.rail nav {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:23px;
+}
+
+.rail nav a {
+  writing-mode:vertical-rl;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:var(--mute);
+  transition:color .3s;
+}
+
+.rail nav a:hover,
+.rail nav a.on {
+  color:var(--accent);
+}
+
+.mode {
+  writing-mode:vertical-rl;
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--mute);
+}
+
+.mode:hover {color:var(--accent)}
 
 .progress {
   position:fixed;
+  left:65px;
   top:0;
-  left:0;
-  height:2px;
-  width:0;
+  bottom:0;
+  width:1px;
+  background:var(--line);
+  z-index:39;
+}
+
+.progress i {
+  display:block;
+  height:100%;
   background:var(--accent);
-  z-index:1000;
+  transform:scaleY(0);
+  transform-origin:top;
 }
 
-.side-nav {
-  position:fixed;
-  left:35px;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:100;
-  display:flex;
-  flex-direction:column;
-  gap:21px;
-}
-
-.side-nav a {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  color:var(--muted);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  transition:.3s;
-}
-
-.side-nav a::before {
-  content:'';
-  width:6px;
-  height:6px;
-  border:1px solid var(--muted);
-  border-radius:50%;
-  transition:.3s;
-}
-
-.side-nav a:hover,
-.side-nav a.active { color:var(--accent); }
-
-.side-nav a.active::before {
-  background:var(--accent);
-  border-color:var(--accent);
-  transform:scale(1.4);
-}
-
-.top-controls {
-  position:fixed;
-  top:25px;
-  right:35px;
-  z-index:200;
-  display:flex;
-  gap:15px;
-  align-items:center;
-}
-
-.theme-toggle {
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--text);
-  padding:9px 14px;
-  border-radius:30px;
-  cursor:pointer;
-  font-size:11px;
-  letter-spacing:.1em;
-}
-
-/* GENERAL LAYOUT */
-
-main {
-  max-width:1100px;
-  margin:auto;
-  padding:0 70px;
-}
-
-section {
-  padding:125px 0;
-  border-bottom:1px solid var(--line);
-  position:relative;
-}
-
-.eyebrow {
-  color:var(--accent);
-  font-size:11px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  margin-bottom:20px;
-}
-
-h1,h2,h3,h4 {
-  font-family:var(--serif);
-  font-weight:500;
-}
-
-.section-heading {
-  font-size:clamp(48px,7vw,76px);
-  line-height:.95;
-  letter-spacing:-.03em;
-  margin-bottom:55px;
-}
-
-.subheading {
-  font-size:36px;
-  line-height:1.1;
-  margin-bottom:25px;
-}
-
-.muted { color:var(--muted); }
-
-.accent { color:var(--accent); }
-
-/* HERO */
+/* Hero */
 
 .hero {
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:100px;
-  padding-bottom:100px;
-  border-bottom:1px solid var(--line);
+  position:relative;
+  padding:100px 0;
+  overflow:hidden;
 }
 
-.hero-content { max-width:850px; }
+.hero-inner {
+  position:relative;
+  z-index:2;
+  width:min(1000px,calc(100% - 150px));
+  margin:auto;
+}
 
-.hero-kicker {
-  color:var(--accent);
-  font-size:12px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  margin-bottom:28px;
+.hero-top {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:45px;
+}
+
+.hero-top:before {
+  content:"";
+  height:1px;
+  width:38px;
+  background:var(--accent);
 }
 
 .hero h1 {
-  font-size:clamp(75px,12vw,145px);
-  line-height:.78;
-  letter-spacing:-.055em;
-  margin-bottom:30px;
+  font:400 clamp(58px,9vw,112px)/.94 var(--serif);
+  letter-spacing:-.045em;
+  max-width:850px;
+  margin:0;
 }
 
-.hero h1 span {
-  display:block;
+.hero h1 em {
   color:var(--accent);
-  font-style:italic;
-  padding-left:12%;
+  font-weight:400;
 }
 
-.hero-subtitle {
-  font-size:clamp(17px,2vw,22px);
-  color:var(--muted);
-  letter-spacing:.04em;
-  margin:35px 0 18px;
+.hero-bottom {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:30px;
+  margin-top:55px;
 }
 
 .hero-desc {
-  max-width:410px;
+  max-width:390px;
   font-size:16px;
-  line-height:1.9;
-  color:var(--muted);
+  color:var(--mute);
 }
 
 .hero-actions {
   display:flex;
-  gap:32px;
+  gap:28px;
   flex-wrap:wrap;
-  align-items:center;
   position:relative;
-  z-index:5;
-  padding:18px 0;
-  margin-top:25px;
+  top:-96px;
 }
 
 .text-link {
-  display:inline-block;
   font-size:12px;
-  letter-spacing:.16em;
   text-transform:uppercase;
-  padding:10px 0;
+  letter-spacing:.19em;
+  padding-bottom:7px;
   border-bottom:1px solid var(--line);
+  transition:border-color .3s,color .3s;
   white-space:nowrap;
-  transition:.3s;
 }
 
 .text-link:hover {
-  color:var(--accent);
   border-color:var(--accent);
-}
-
-.hero-decoration {
-  position:absolute;
-  right:5%;
-  bottom:12%;
-  width:150px;
-  height:150px;
-  border:1px solid var(--line);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   color:var(--accent);
-  font-family:var(--serif);
-  font-size:16px;
-  text-align:center;
-  transform:rotate(-15deg);
 }
 
-/* ABOUT */
+.hero-note {
+  position:absolute;
+  right:8%;
+  bottom:13%;
+  color:var(--mute);
+  font:italic 20px var(--serif);
+  opacity:.7;
+}
 
-.about-grid {
+/* General sections */
+
+section {
+  padding:115px 0;
+  position:relative;
+}
+
+.section-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  border-bottom:1px solid var(--line);
+  padding-bottom:22px;
+  margin-bottom:55px;
+  gap:20px;
+}
+
+.section-heading h2 {
+  font:400 clamp(38px,5vw,58px)/1 var(--serif);
+  margin:0;
+}
+
+.section-heading span {
+  font-size:10px;
+  color:var(--mute);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+
+/* Reveal */
+
+.rv {opacity:1;transform:none}
+
+html.js .rv {
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+html.js .rv.in {
+  opacity:1;
+  transform:none;
+}
+
+/* About */
+
+.about-layout {
   display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:70px;
+  grid-template-columns:.85fr 1.15fr;
+  gap:85px;
   align-items:start;
 }
 
-.about-intro p {
-  font-size:15px;
-  line-height:1.9;
-  color:var(--muted);
-  margin-bottom:20px;
+.about-intro {
+  position:sticky;
+  top:100px;
 }
 
-.about-panel {
-  background:var(--surface);
-  padding:35px;
-  min-height:250px;
-  border:1px solid var(--line);
+.about-intro h3 {
+  font:400 42px/1.1 var(--serif);
+  margin:20px 0;
+}
+
+.about-intro p {
+  color:var(--mute);
+  font-size:15px;
 }
 
 .about-tabs {
   display:flex;
-  gap:10px;
   flex-wrap:wrap;
+  gap:10px;
   margin-bottom:28px;
 }
 
 .about-tab {
+  padding:9px 15px;
   border:1px solid var(--line);
-  color:var(--muted);
-  background:transparent;
-  cursor:pointer;
+  color:var(--mute);
   font-size:12px;
-  padding:10px 17px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
   transition:.3s;
 }
 
-.about-tab.active,
-.about-tab:hover {
-  color:var(--bg);
-  background:var(--accent);
+.about-tab:hover,
+.about-tab.active {
   border-color:var(--accent);
+  background:var(--accent);
+  color:white;
+}
+
+.about-panel {
+  min-height:235px;
+  border-left:1px solid var(--accent);
+  padding:8px 0 8px 28px;
+  animation:fadein .4s ease;
+}
+
+.about-panel h3 {
+  font:400 34px var(--serif);
+  margin:0 0 15px;
 }
 
 .about-panel p {
+  color:var(--mute);
   font-size:16px;
-  line-height:1.9;
-  color:var(--muted);
+  max-width:480px;
 }
 
-.facts {
+.about-facts {
   display:flex;
-  gap:10px;
   flex-wrap:wrap;
+  gap:12px;
   margin-top:25px;
 }
 
 .fact {
   border:1px solid var(--line);
-  padding:11px 14px;
+  padding:10px 13px;
   font-size:13px;
-  color:var(--muted);
+  color:var(--mute);
 }
 
-/* EXPERIENCE */
+.fact b {
+  color:var(--accent);
+  font-weight:400;
+}
+
+@keyframes fadein {
+  from {opacity:0;transform:translateY(8px)}
+  to {opacity:1;transform:none}
+}
+
+/* Experience timeline */
 
 .timeline {
+  margin-left:12px;
+  padding-left:38px;
   position:relative;
-  margin-left:8px;
-  border-left:1px solid var(--line);
+}
+
+.timeline:before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  bottom:10px;
+  width:1px;
+  background:var(--line);
+}
+
+.timeline:after {
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  height:var(--p,0%);
+  width:1px;
+  background:var(--accent);
 }
 
 .entry {
   position:relative;
-  padding:0 0 55px 38px;
+  padding-bottom:55px;
 }
 
-.entry:last-child { padding-bottom:0; }
+.entry:last-child {padding-bottom:0}
 
-.entry::before {
-  content:'';
+.entry:before {
+  content:"";
   position:absolute;
-  left:-5px;
+  left:-42px;
   top:8px;
-  width:9px;
-  height:9px;
+  width:7px;
+  height:7px;
   border-radius:50%;
+  background:var(--bg);
+  border:1px solid var(--mute);
+  transition:.3s;
+}
+
+.entry.in:before {
   background:var(--accent);
+  border-color:var(--accent);
 }
 
 .entry .date {
-  color:var(--accent);
   font-size:12px;
-  letter-spacing:.16em;
+  color:var(--accent);
+  letter-spacing:.2em;
   text-transform:uppercase;
-  margin-bottom:10px;
 }
 
 .entry h3 {
-  font-size:32px;
-  line-height:1.1;
-  margin-bottom:7px;
+  font:400 clamp(25px,3vw,34px) var(--serif);
+  margin:8px 0 0;
 }
 
 .entry .org {
+  color:var(--mute);
   font-size:14px;
-  color:var(--muted);
-  margin-bottom:18px;
+}
+
+.entry p,
+.entry li {
+  color:var(--mute);
+  font-size:15px;
+}
+
+.entry p {
+  max-width:650px;
+  margin:14px 0;
 }
 
 .entry ul {
-  padding-left:20px;
-  color:var(--muted);
+  padding-left:18px;
+  max-width:700px;
+  margin:12px 0;
 }
 
-.entry li {
-  padding-left:5px;
-  margin-bottom:9px;
-  font-size:15px;
-  line-height:1.85;
-}
+.entry li {margin:7px 0}
 
 .tags {
   display:flex;
-  gap:8px;
   flex-wrap:wrap;
-  margin-top:20px;
+  gap:8px;
 }
 
 .tags span {
-  font-size:11px;
-  color:var(--accent);
   border:1px solid var(--line);
   padding:5px 10px;
+  color:var(--mute);
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
 }
 
-/* EDUCATION */
+/* Education */
+
+.subheading {
+  font:400 34px var(--serif);
+  margin:85px 0 25px;
+}
 
 .education-list {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
+  border-top:1px solid var(--line);
 }
 
 .education-item {
-  padding:27px;
-  background:var(--surface);
-  border:1px solid var(--line);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  align-items:center;
+  padding:19px 5px;
+  border-bottom:1px solid var(--line);
 }
 
 .education-item h4 {
-  font-size:23px;
-  line-height:1.2;
-  margin-bottom:10px;
+  font:400 21px var(--serif);
+  margin:0;
 }
 
 .education-item p {
-  color:var(--muted);
   font-size:14px;
-  line-height:1.7;
+  color:var(--mute);
+  margin:3px 0 0;
 }
 
 .education-item .score {
   color:var(--accent);
   font-size:13px;
-  margin-top:12px;
+  text-align:right;
+  white-space:nowrap;
 }
 
-/* SELECTED WORK */
+/* Selected work */
 
 .work-list {
-  display:flex;
-  flex-direction:column;
-}
-
-.work-item {
-  padding:45px 0;
   border-top:1px solid var(--line);
 }
 
-.work-item:last-child { border-bottom:1px solid var(--line); }
+.work-item {
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:40px;
+  padding:35px 15px;
+  border-bottom:1px solid var(--line);
+  transition:background .3s,padding .3s;
+}
 
-.work-item .label {
-  font-size:11px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:12px;
+.work-item:hover {
+  background:var(--surface);
+  padding-left:25px;
 }
 
 .work-item h3 {
-  font-size:34px;
-  line-height:1.1;
-  margin-bottom:15px;
+  font:400 32px var(--serif);
+  margin:0;
+}
+
+.work-item .label {
+  font-size:11px;
+  letter-spacing:.18em;
+  color:var(--accent);
+  text-transform:uppercase;
+  margin-top:8px;
 }
 
 .work-item p,
 .work-item li {
+  color:var(--mute);
   font-size:15px;
-  line-height:1.85;
-  color:var(--muted);
-  max-width:750px;
 }
 
-.work-item ul {
-  padding-left:20px;
-  margin-top:12px;
-}
+.work-item ul {padding-left:17px}
+.work-item li {margin:7px 0}
 
-.work-item li { margin-bottom:7px; }
+/* Achievements */
 
-/* ACHIEVEMENTS */
-
-.achievements {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
+.achievement-list {
+  border-top:1px solid var(--line);
 }
 
 .achievement {
-  padding:30px;
-  border:1px solid var(--line);
+  display:grid;
+  grid-template-columns:75px 1fr;
+  gap:25px;
+  padding:27px 10px;
+  border-bottom:1px solid var(--line);
+  transition:background .3s,padding .3s;
+}
+
+.achievement:hover {
   background:var(--surface);
+  padding-left:20px;
 }
 
 .achievement-number {
-  font-family:var(--serif);
-  font-size:34px;
+  font:italic 30px var(--serif);
   color:var(--accent);
-  margin-bottom:15px;
 }
 
 .achievement h3 {
-  font-size:27px;
-  line-height:1.15;
-  margin-bottom:12px;
+  font:400 25px/1.2 var(--serif);
+  margin:0 0 7px;
 }
 
 .achievement p {
+  color:var(--mute);
   font-size:15px;
-  line-height:1.85;
-  color:var(--muted);
+  margin:0;
+  max-width:650px;
 }
 
-/* CAPABILITIES */
+/* Capabilities */
 
-.capability-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:35px;
-}
-
-.capability-group h3 {
-  font-size:28px;
-  margin-bottom:20px;
-}
-
-.chips {
+.skill-filter {
   display:flex;
-  flex-wrap:wrap;
   gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:35px;
 }
 
 .chip {
-  font-size:12px;
-  padding:10px 15px;
   border:1px solid var(--line);
-  color:var(--muted);
+  padding:9px 15px;
+  font-size:12px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--mute);
   transition:.3s;
 }
 
-.chip:hover {
-  color:var(--bg);
+.chip:hover,
+.chip.on {
   background:var(--accent);
   border-color:var(--accent);
+  color:white;
 }
 
-.skill-list {
+.skill-grid {
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:12px;
 }
 
 .skill {
-  font-size:14px;
-  padding:19px;
-  background:var(--surface);
+  padding:17px;
   border:1px solid var(--line);
+  font-size:14px;
+  color:var(--mute);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  transition:.3s;
 }
 
-/* CERTIFICATIONS AND LANGUAGES */
+.skill:hover {
+  border-color:var(--accent);
+  color:var(--ink);
+  transform:translateY(-3px);
+}
+
+.skill i {
+  font-style:normal;
+  font-size:9px;
+  color:var(--accent);
+  opacity:0;
+  transition:.3s;
+}
+
+.skill:hover i {opacity:1}
+.hidden {display:none!important}
+
+/* Certifications and languages */
 
 .info-columns {
   display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:70px;
+  grid-template-columns:1.3fr .7fr;
+  gap:65px;
+  margin-top:75px;
 }
 
 .info-columns h3 {
-  font-size:34px;
-  margin-bottom:25px;
+  font:400 32px var(--serif);
+  margin:0 0 20px;
+}
+
+.certificates {
+  border-top:1px solid var(--line);
 }
 
 .certificate {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
   border-bottom:1px solid var(--line);
   padding:15px 0;
   font-size:14px;
-  line-height:1.7;
-  color:var(--muted);
+  color:var(--mute);
 }
 
-.certificate strong {
-  color:var(--text);
-  font-weight:500;
+.certificate b {
+  font-weight:400;
+  color:var(--ink);
+}
+
+.language-list {
+  border-top:1px solid var(--line);
 }
 
 .language {
   display:flex;
   justify-content:space-between;
-  gap:15px;
-  padding:15px 0;
+  gap:12px;
   border-bottom:1px solid var(--line);
+  padding:15px 0;
   font-size:14px;
 }
 
-.language span:last-child { color:var(--muted); }
+.language span:last-child {
+  color:var(--mute);
+  text-align:right;
+}
 
-/* CONTACT */
+/* Contact */
 
 .contact {
   text-align:center;
-  padding:140px 0;
-  border-bottom:0;
+  padding:150px 0 110px;
 }
 
 .contact h2 {
-  font-size:clamp(55px,9vw,100px);
-  line-height:.9;
-  margin-bottom:30px;
+  font:400 clamp(45px,7vw,78px)/1 var(--serif);
+  max-width:700px;
+  margin:30px auto;
 }
 
+.contact h2 em {color:var(--accent)}
+
 .contact p {
+  color:var(--mute);
+  max-width:400px;
+  margin:0 auto 40px;
   font-size:15px;
-  line-height:1.9;
-  color:var(--muted);
-  max-width:500px;
-  margin:0 auto 35px;
+}
+
+.contact-circle {
+  width:135px;
+  height:135px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  display:inline-grid;
+  place-items:center;
+  font-size:12px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  transition:.4s;
+}
+
+.contact-circle:hover {
+  background:var(--accent);
+  border-color:var(--accent);
+  color:white;
+  transform:translateY(-5px);
 }
 
 .contact-links {
+  margin-top:40px;
   display:flex;
   justify-content:center;
   gap:25px;
   flex-wrap:wrap;
   font-size:14px;
+  color:var(--mute);
 }
 
-.contact-links a {
+.contact-links a,
+.contact-links button {
   border-bottom:1px solid var(--line);
-  padding-bottom:7px;
-  transition:.3s;
+  padding-bottom:4px;
 }
 
-.contact-links a:hover {
+.contact-links a:hover,
+.contact-links button:hover {
   color:var(--accent);
-  border-color:var(--accent);
 }
+
+/* Footer */
 
 footer {
-  padding:25px 0;
+  border-top:1px solid var(--line);
+  padding:25px 0 35px;
   text-align:center;
-  color:var(--muted);
-  font-size:11px;
-  letter-spacing:.12em;
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--mute);
 }
 
-/* REVEAL ANIMATION */
-
-.reveal {
-  opacity:0;
-  transform:translateY(25px);
-  transition:opacity .8s ease,transform .8s ease;
-}
-
-.reveal.visible {
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* RESPONSIVE */
+/* Responsive */
 
 @media(max-width:900px) {
-  main { padding:0 45px; }
-  .side-nav { left:15px; }
-  .about-grid,.info-columns { grid-template-columns:1fr; gap:35px; }
+  .w,.hero-inner {
+    width:calc(100% - 100px);
+    margin-left:65px;
+    margin-right:35px;
+  }
+
+  .rail.right {display:none}
+
+  .about-layout {
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .about-intro {position:static}
+
+  .skill-grid {grid-template-columns:1fr 1fr}
+
+  .info-columns {
+    grid-template-columns:1fr;
+    gap:45px;
+  }
 }
 
 @media(max-width:600px) {
-  main { padding:0 25px; }
-  section { padding:85px 0; }
-  .side-nav {
-    display:none;
+  .w,.hero-inner {
+    width:calc(100% - 65px);
+    margin-left:48px;
+    margin-right:17px;
   }
-  .top-controls {
-    top:15px;
-    right:18px;
-  }
+
+  .rail {width:32px}
+  .progress {left:32px}
+  .rail-name {font-size:8px}
+
   .hero {
     min-height:90vh;
-    padding-top:100px;
+    padding:100px 0 80px;
   }
-  .hero h1 { font-size:76px; }
-  .hero-desc { font-size:15px; }
-  .hero-actions {
-    gap:22px;
+
+  .hero h1 {
+    font-size:clamp(55px,13vw,78px);
+  }
+
+  .hero-note {display:none}
+
+  .hero-bottom {
     flex-direction:column;
     align-items:flex-start;
+    gap:20px;
+    margin-top:35px;
   }
-  .text-link { font-size:11px; }
-  .hero-decoration {
-    width:90px;
-    height:90px;
-    font-size:11px;
-    right:5%;
-    bottom:7%;
+
+  .hero-desc {max-width:300px}
+
+  .hero-actions {
+    top:-40px;
+    gap:20px;
   }
-  .section-heading { font-size:52px; }
-  .subheading { font-size:32px; }
-  .about-panel { padding:23px; }
-  .about-panel p,
-  .entry p,
-  .entry li,
-  .work-item p,
-  .work-item li,
-  .achievement p { font-size:14px; }
-  .entry h3 { font-size:27px; }
-  .education-list,
-  .achievements,
-  .capability-grid,
-  .skill-list { grid-template-columns:1fr; }
-  .education-item h4 { font-size:21px; }
-  .achievement h3 { font-size:23px; }
-  .work-item h3 { font-size:30px; }
-  .contact { padding:100px 0; }
-  .contact-links { gap:18px; }
+
+  section {padding:80px 0}
+
+  .section-heading {
+    margin-bottom:35px;
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .section-heading h2 {font-size:43px}
+
+  .work-item {
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .skill-grid {grid-template-columns:1fr}
+
+  .about-intro h3 {font-size:36px}
+
+  .achievement {
+    grid-template-columns:40px 1fr;
+    gap:15px;
+  }
+
+  .achievement h3 {font-size:22px}
+
+  .education-item {
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+
+  .education-item .score {text-align:left}
+
+  .contact {padding:100px 0 75px}
 }
 
 @media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    scroll-behavior:auto !important;
-    transition:none !important;
-    animation:none !important;
+  html {scroll-behavior:auto}
+
+  *,*:before,*:after {
+    animation:none!important;
+    transition:none!important;
+  }
+
+  .rv {
+    opacity:1!important;
+    transform:none!important;
   }
 }
 </style>
@@ -728,513 +925,800 @@ footer {
 
 <body>
 
-<div class="progress" id="progress"></div>
+<div class="progress"><i id="progress"></i></div>
 
-<nav class="side-nav" aria-label="Main navigation">
-  <a href="#home" class="active">Home</a>
-  <a href="#about">About</a>
-  <a href="#journey">Journey</a>
-  <a href="#education">Education</a>
-  <a href="#work">Work</a>
-  <a href="#achievements">Achievements</a>
-  <a href="#capabilities">Capabilities</a>
-  <a href="#contact">Contact</a>
-</nav>
+<aside class="rail left">
+  <span class="rail-mark"></span>
+  <span class="rail-name">ROSE MARY</span>
+  <span></span>
+</aside>
 
-<div class="top-controls">
-  <button class="theme-toggle" id="themeToggle" type="button">LIGHT MODE</button>
-</div>
+<aside class="rail right">
+  <span></span>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#journey">Journey</a>
+    <a href="#work">Work</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#capabilities">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="mode" id="mode" type="button">Paper</button>
+</aside>
 
 <main>
 
 <!-- HERO -->
 
-<section class="hero" id="home">
-  <div class="hero-content reveal">
-    <div class="hero-kicker">Business · Strategy · Growth</div>
+<header class="hero" id="top">
+  <div class="hero-inner">
 
-    <h1>Rose <span>Mary.</span></h1>
-
-    <p class="hero-subtitle">Building connections. Creating opportunities.</p>
-
-    <p class="hero-desc">
-      I work at the intersection of business development, technology and strategic growth — turning ideas, conversations and opportunities into meaningful business outcomes.
-    </p>
-
-    <div class="hero-actions">
-      <a class="text-link" href="#journey">Explore my journey ↗</a>
-      <a class="text-link" href="Rose_Mary_Resume.pdf" target="_blank" rel="noopener">Download résumé ↗</a>
+    <div class="hero-top eyebrow rv">
+      Business Growth · B2B Sales · Strategy
     </div>
+
+    <h1 class="rv">
+      Turning<br>
+      opportunities<br>
+      into <em>meaningful</em><br>
+      growth.
+    </h1>
+
+    <div class="hero-bottom rv">
+      <p class="hero-desc">
+        I’m Rose Mary — a business growth and stakeholder management professional building commercial relationships, market understanding and practical business outcomes.
+      </p>
+
+      <div class="hero-actions">
+        <a class="text-link" href="#journey">Explore my journey ↗</a>
+        <a class="text-link" href="Rose_Mary_Resume.pdf" download>Download résumé ↗</a>
+      </div>
+    </div>
+
   </div>
 
-  <div class="hero-decoration">Curiosity<br>into impact</div>
-</section>
+  <div class="hero-note">Curiosity into opportunity.</div>
+</header>
 
 <!-- ABOUT -->
 
 <section id="about">
-  <div class="eyebrow reveal">01 / A little about me</div>
-  <h2 class="section-heading reveal">Beyond the<br><span class="accent">conventional.</span></h2>
+<div class="w">
 
-  <div class="about-grid">
-    <div class="about-intro reveal">
-      <h3 class="subheading">A different<br>starting point.</h3>
-      <p>
-        My academic journey began in Zoology, but my curiosity gradually led me towards business, management and the world of technology.
-      </p>
-      <p>
-        A turning point came when I won a zonal-level startup competition, which encouraged me to explore entrepreneurship and business more seriously.
-      </p>
-      <p>
-        Today, I bring together a scientific mindset and a management perspective to understand problems, connect with people and explore opportunities for growth.
-      </p>
-    </div>
-
-    <div class="about-panel reveal">
-      <div class="about-tabs">
-        <button class="about-tab active" data-tab="mindset">Mindset</button>
-        <button class="about-tab" data-tab="approach">Approach</button>
-        <button class="about-tab" data-tab="interests">Interests</button>
-      </div>
-
-      <div id="aboutContent">
-        <p>
-          I enjoy understanding how businesses work, why customers make decisions and how technology can solve real-world problems. I am naturally curious, analytical and interested in learning across disciplines.
-        </p>
-      </div>
-
-      <div class="facts">
-        <span class="fact">Business Development</span>
-        <span class="fact">B2B Technology</span>
-        <span class="fact">Market Research</span>
-        <span class="fact">Strategic Thinking</span>
-      </div>
-    </div>
+  <div class="section-heading rv">
+    <h2>About me.</h2>
+    <span>A little introduction</span>
   </div>
+
+  <div class="about-layout">
+
+    <div class="about-intro rv">
+      <h3>
+        A different<br>
+        perspective.<br>
+        A business mindset.
+      </h3>
+
+      <p>
+        Science taught me to question. Management taught me to turn questions into opportunities.
+      </p>
+
+      <p class="eyebrow">Explore the different sides of my journey ↓</p>
+    </div>
+
+    <div class="about-interactive rv">
+
+      <div class="about-tabs" role="tablist" aria-label="About Rose Mary">
+
+        <button class="about-tab active" data-about="background" role="tab" aria-selected="true">
+          Background
+        </button>
+
+        <button class="about-tab" data-about="approach" role="tab" aria-selected="false">
+          My approach
+        </button>
+
+        <button class="about-tab" data-about="interests" role="tab" aria-selected="false">
+          Interests
+        </button>
+
+      </div>
+
+      <div class="about-panel" id="aboutPanel" aria-live="polite">
+        <h3>From science to business.</h3>
+
+        <p>
+          With a Master's in Zoology and a PGDM in Management, I bring an analytical perspective to business development, commercial coordination and stakeholder relationships.
+        </p>
+
+        <div class="about-facts">
+          <span class="fact"><b>01</b> Science background</span>
+          <span class="fact"><b>02</b> PGDM · 2026</span>
+          <span class="fact"><b>03</b> Business growth</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- EXPERIENCE & EDUCATION -->
 
 <section id="journey">
-  <div class="eyebrow reveal">02 / Professional journey</div>
-  <h2 class="section-heading reveal">Experience &<br><span class="accent">growth.</span></h2>
+<div class="w">
 
-  <div class="timeline">
+  <div class="section-heading rv">
+    <h2>The journey.</h2>
+    <span>Experience & education</span>
+  </div>
 
-    <article class="entry reveal">
+  <h3 class="subheading rv">Professional experience</h3>
+
+  <div class="timeline" id="timeline">
+
+    <!-- MEDIPHORE -->
+
+    <div class="entry rv">
       <div class="date">May 2026 — Present</div>
       <h3>General Management</h3>
       <div class="org">Mediphore Systems and Technologies Pvt. Ltd.</div>
 
       <ul>
-        <li>Prepare and deliver client presentations and product demonstrations, communicating product capabilities and business value to prospective clients and stakeholders.</li>
-        <li>Standardized the client demonstration workflow to improve consistency across client-facing interactions and support sales conversion.</li>
+        <li>Prepare and deliver client presentations and product demonstrations, communicating product capabilities and business value.</li>
+        <li>Standardised the client demonstration workflow to improve consistency across client-facing interactions and support sales conversion.</li>
         <li>Coordinate with clients, partners and internal teams to understand business requirements and facilitate commercial discussions.</li>
         <li>Support commercial documentation, agreement coordination and stakeholder follow-ups across regional markets.</li>
         <li>Conduct market and competitor research across India and Southeast Asia to support business development and market expansion.</li>
       </ul>
 
       <div class="tags">
+        <span>General Management</span>
+        <span>Client Demos</span>
         <span>Business Development</span>
-        <span>Client Engagement</span>
-        <span>Sales Enablement</span>
         <span>Market Research</span>
       </div>
-    </article>
+    </div>
 
-    <article class="entry reveal">
+    <!-- MEI -->
+
+    <div class="entry rv">
       <div class="date">April 2025 — June 2025</div>
       <h3>Digital Marketing & Sales Enablement Intern</h3>
       <div class="org">Madras Engineering Industries (MEI)</div>
 
       <ul>
-        <li>Developed a national product catalogue to support B2B sales teams and product communication.</li>
-        <li>Conducted market and competitor analysis to support marketing and business planning.</li>
-        <li>Designed the MEI Mithra Loyalty Program to strengthen dealer engagement.</li>
-        <li>Coordinated with internal teams, vendors and design agencies to execute marketing initiatives.</li>
-        <li>Contributed to a 50% reduction in costs through vendor negotiations and commercial arrangements.</li>
-        <li>Supported point-of-sale initiatives to improve dealer engagement and regional visibility.</li>
+        <li>Developed a national product catalogue to help B2B sales teams communicate product information consistently across India.</li>
+        <li>Conducted market and competitor analysis to support product positioning and sales enablement.</li>
+        <li>Designed the MEI Mithra Loyalty Program to support dealer engagement, customer retention and long-term business relationships.</li>
+        <li>Coordinated with internal teams, vendors and design agencies to deliver sales materials aligned with customer requirements.</li>
+        <li>Negotiated with vendors and coordinated commercial arrangements, contributing to a 50% reduction in costs.</li>
+        <li>Supported point-of-sale initiatives to strengthen dealer engagement and regional brand visibility.</li>
       </ul>
 
       <div class="tags">
         <span>B2B Marketing</span>
         <span>Sales Enablement</span>
-        <span>Vendor Management</span>
-        <span>Market Analysis</span>
+        <span>Vendor Negotiation</span>
+        <span>50% Cost Reduction</span>
       </div>
-    </article>
+    </div>
 
-    <article class="entry reveal">
+    <!-- MCC MRF -->
+
+    <div class="entry rv">
       <div class="date">October 2024 — March 2025</div>
       <h3>Outreach & Business Development Support</h3>
       <div class="org">MCC-MRF Innovation Park</div>
 
       <ul>
-        <li>Researched and profiled prospective industry partners and startups to identify potential collaboration opportunities.</li>
+        <li>Researched and profiled prospective industry partners and startups to support lead identification and business outreach.</li>
         <li>Supported partner communication and coordination with founders, investors and industry stakeholders.</li>
-        <li>Coordinated outreach initiatives and supported the development of stakeholder relationships.</li>
+        <li>Collaborated with internal teams to coordinate outreach initiatives and maintain stakeholder relationships.</li>
       </ul>
 
       <div class="tags">
         <span>Business Outreach</span>
+        <span>Startup Ecosystem</span>
         <span>Stakeholder Engagement</span>
-        <span>Research</span>
       </div>
-    </article>
+    </div>
 
   </div>
-</section>
 
-<!-- EDUCATION -->
+  <!-- EDUCATION -->
 
-<section id="education">
-  <div class="eyebrow reveal">03 / Academic background</div>
-  <h2 class="section-heading reveal">Learning<br><span class="accent">never stops.</span></h2>
+  <h3 class="subheading rv">Education</h3>
 
-  <div class="education-list">
+  <div class="education-list rv">
 
-    <article class="education-item reveal">
-      <h4>Post Graduate Diploma in Management</h4>
-      <p>MCC Boyd Tandon School of Business</p>
-      <p>2026 · Pursuing</p>
-      <div class="score">CGPA: 6.91 / 8</div>
-    </article>
+    <div class="education-item">
+      <div>
+        <h4>PGDM — Post Graduate Diploma in Management</h4>
+        <p>MCC Boyd Tandon School of Business</p>
+      </div>
+      <div class="score">2026 · 6.91 / 8 CGPA</div>
+    </div>
 
-    <article class="education-item reveal">
-      <h4>Master of Science — Zoology</h4>
-      <p>St. Teresa's College</p>
-      <p>2024</p>
-      <div class="score">CGPA: 4 / 5</div>
-    </article>
+    <div class="education-item">
+      <div>
+        <h4>M.Sc. Zoology</h4>
+        <p>St. Teresa's College</p>
+      </div>
+      <div class="score">2024 · 4 / 5 CGPA</div>
+    </div>
 
-    <article class="education-item reveal">
-      <h4>Bachelor of Science — Zoology</h4>
-      <p>Madras Christian College</p>
-      <p>2022</p>
-      <div class="score">CGPA: 8.3 / 10</div>
-    </article>
+    <div class="education-item">
+      <div>
+        <h4>B.Sc. Zoology</h4>
+        <p>Madras Christian College</p>
+      </div>
+      <div class="score">2022 · 8.3 / 10 CGPA</div>
+    </div>
 
-    <article class="education-item reveal">
-      <h4>Higher Secondary Certificate</h4>
-      <p>Vijayagiri Public School</p>
-      <p>2019</p>
-      <div class="score">84%</div>
-    </article>
+    <div class="education-item">
+      <div>
+        <h4>Higher Secondary Certificate</h4>
+        <p>Vijayagiri Public School</p>
+      </div>
+      <div class="score">2019 · 84%</div>
+    </div>
 
-    <article class="education-item reveal">
-      <h4>Secondary School Certificate</h4>
-      <p>Mar Thoma Public School</p>
-      <p>2017</p>
-      <div class="score">CGPA: 9.8 / 10</div>
-    </article>
+    <div class="education-item">
+      <div>
+        <h4>Secondary School Certificate</h4>
+        <p>Mar Thoma Public School</p>
+      </div>
+      <div class="score">2017 · 9.8 / 10</div>
+    </div>
 
   </div>
+
+</div>
 </section>
 
 <!-- SELECTED WORK -->
 
 <section id="work">
-  <div class="eyebrow reveal">04 / Selected work</div>
-  <h2 class="section-heading reveal">Ideas into<br><span class="accent">action.</span></h2>
+<div class="w">
+
+  <div class="section-heading rv">
+    <h2>Selected work.</h2>
+    <span>Projects & contributions</span>
+  </div>
 
   <div class="work-list">
 
-    <article class="work-item reveal">
-      <div class="label">01 / Healthcare Technology · Business Development</div>
-      <h3>Mediphore Systems</h3>
-      <p>
-        Contributing to business development and client engagement in healthcare technology, with exposure to international markets and cross-functional business operations.
-      </p>
-      <ul>
-        <li>Supported client presentations, product demonstrations and sales enablement.</li>
-        <li>Contributed to market research and business expansion initiatives across Southeast Asia.</li>
-        <li>Worked across client coordination, commercial documentation and stakeholder follow-ups.</li>
-      </ul>
+    <!-- MEDIPHORE FIRST -->
+
+    <article class="work-item rv">
+      <div>
+        <h3>Client Demonstration Workflow</h3>
+        <div class="label">Pre-Sales · Mediphore</div>
+      </div>
+      <div>
+        <p>
+          Standardised the approach to preparing and delivering product demonstrations, helping create a more consistent client-facing experience.
+        </p>
+        <ul>
+          <li>Prepared client presentations and product demonstrations.</li>
+          <li>Improved consistency across the demonstration workflow.</li>
+          <li>Communicated product capabilities and business value to prospective clients.</li>
+        </ul>
+      </div>
     </article>
 
-    <article class="work-item reveal">
-      <div class="label">02 / Industrial Marketing · Sales Enablement</div>
-      <h3>Madras Engineering Industries</h3>
-      <p>
-        Worked on marketing and sales enablement initiatives for an industrial business, supporting product communication, dealer engagement and commercial coordination.
-      </p>
-      <ul>
-        <li>Developed a national product catalogue for B2B sales teams.</li>
-        <li>Designed the MEI Mithra Loyalty Program.</li>
-        <li>Contributed to vendor negotiations that reduced costs by 50%.</li>
-      </ul>
+    <article class="work-item rv">
+      <div>
+        <h3>Commercial & Market Development</h3>
+        <div class="label">Business Development · Mediphore</div>
+      </div>
+      <div>
+        <p>
+          Supported business development through market research, stakeholder coordination and commercial discussions across regional markets.
+        </p>
+        <ul>
+          <li>Conducted market and competitor research across India and Southeast Asia.</li>
+          <li>Coordinated with clients, partners and internal teams.</li>
+          <li>Supported commercial documentation and agreement coordination.</li>
+        </ul>
+      </div>
     </article>
 
-    <article class="work-item reveal">
-      <div class="label">03 / Startup Ecosystem · Outreach</div>
-      <h3>MCC-MRF Innovation Park</h3>
-      <p>
-        Supported outreach and business development activities within an innovation ecosystem, connecting with startups, founders, investors and potential industry partners.
-      </p>
-      <ul>
-        <li>Researched prospective industry partners and startups.</li>
-        <li>Supported stakeholder communication and outreach coordination.</li>
-      </ul>
+    <!-- MEI SECOND -->
+
+    <article class="work-item rv">
+      <div>
+        <h3>National Product Catalogue</h3>
+        <div class="label">B2B Sales Enablement · MEI</div>
+      </div>
+      <div>
+        <p>
+          Developed a national product catalogue to help B2B sales teams communicate product information consistently across India.
+        </p>
+        <ul>
+          <li>Organised product information into a structured catalogue.</li>
+          <li>Supported consistent product communication for sales teams.</li>
+          <li>Conducted market and competitor analysis to support product positioning.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work-item rv">
+      <div>
+        <h3>MEI Mithra Loyalty Program</h3>
+        <div class="label">Customer Engagement · MEI</div>
+      </div>
+      <div>
+        <p>
+          Designed a customer loyalty initiative to strengthen dealer engagement, customer retention and long-term business relationships.
+        </p>
+        <ul>
+          <li>Contributed to the loyalty program concept and design.</li>
+          <li>Coordinated with vendors, agencies and internal stakeholders.</li>
+          <li>Supported dealer engagement and customer-facing initiatives.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- MCC MRF LAST -->
+
+    <article class="work-item rv">
+      <div>
+        <h3>Startup & Industry Outreach</h3>
+        <div class="label">Startup Ecosystem · MCC-MRF Innovation Park</div>
+      </div>
+      <div>
+        <p>
+          Supported outreach and stakeholder coordination to strengthen engagement across the startup and industry ecosystem.
+        </p>
+        <ul>
+          <li>Researched prospective industry partners and startups.</li>
+          <li>Supported communication with founders, investors and industry stakeholders.</li>
+          <li>Contributed to outreach coordination and relationship management.</li>
+        </ul>
+      </div>
     </article>
 
   </div>
+</div>
 </section>
 
 <!-- ACHIEVEMENTS -->
 
 <section id="achievements">
-  <div class="eyebrow reveal">05 / Recognition</div>
-  <h2 class="section-heading reveal">Milestones &<br><span class="accent">recognition.</span></h2>
+<div class="w">
 
-  <div class="achievements">
+  <div class="section-heading rv">
+    <h2>Achievements.</h2>
+    <span>Recognition & milestones</span>
+  </div>
 
-    <article class="achievement reveal">
+  <div class="achievement-list">
+
+    <article class="achievement rv">
       <div class="achievement-number">01</div>
-      <h3>All India Finalist</h3>
-      <p>
-        Chanakya Management Game — AIMA. Recognized for business acumen, strategic thinking and decision-making.
-      </p>
+      <div>
+        <h3>All India Finalist — Chanakya Management Game</h3>
+        <p>
+          All India Management Association (AIMA). Recognised for business acumen, strategic thinking and decision-making.
+        </p>
+      </div>
     </article>
 
-    <article class="achievement reveal">
+    <article class="achievement rv">
       <div class="achievement-number">02</div>
-      <h3>7th Position — All India</h3>
-      <p>
-        Case Study Competition (Marketing), Business Standard's BSmart. Ranked among 324 shortlisted entries from over 2,000 submissions.
-      </p>
+      <div>
+        <h3>7th Position — All India Case Study Competition</h3>
+        <p>
+          Marketing category, Business Standard's BSmart. Ranked among 324 shortlisted entries from over 2,000 submissions.
+        </p>
+      </div>
     </article>
 
-    <article class="achievement reveal">
+    <article class="achievement rv">
       <div class="achievement-number">03</div>
-      <h3>Second Place</h3>
-      <p>
-        Sustainable Clothing Line Pitch — "From Idea to Impact", MCC Boyd Tandon School of Business, 2024.
-      </p>
+      <div>
+        <h3>2nd Place — Sustainable Clothing Line Pitch</h3>
+        <p>
+          "From Idea to Impact", MCC Boyd Tandon School of Business, 2024.
+        </p>
+      </div>
     </article>
 
-    <article class="achievement reveal">
+    <article class="achievement rv">
       <div class="achievement-number">04</div>
-      <h3>Winner — Institutional Round</h3>
-      <p>
-        Innovators Premier League (IPL 2.0). Selected for zonal-level shortlisting by Kerala Startup Mission, 2023.
-      </p>
+      <div>
+        <h3>Winner — Innovators Premier League (IPL 2.0)</h3>
+        <p>
+          Institutional Round winner, selected for zonal-level shortlisting by Kerala Startup Mission, 2023.
+        </p>
+      </div>
     </article>
 
   </div>
+
+</div>
 </section>
 
 <!-- CAPABILITIES -->
 
 <section id="capabilities">
-  <div class="eyebrow reveal">06 / What I bring</div>
-  <h2 class="section-heading reveal">Capabilities &<br><span class="accent">interests.</span></h2>
+<div class="w">
 
-  <div class="capability-grid">
+  <div class="section-heading rv">
+    <h2>What I bring.</h2>
+    <span>Capabilities, tools & certifications</span>
+  </div>
 
-    <div class="capability-group reveal">
-      <h3>Business & Strategy</h3>
-      <div class="chips">
-        <span class="chip">Business Development</span>
-        <span class="chip">B2B Sales</span>
-        <span class="chip">Market Research</span>
-        <span class="chip">Competitor Analysis</span>
-        <span class="chip">Client Presentations</span>
-        <span class="chip">Stakeholder Management</span>
-        <span class="chip">Sales Enablement</span>
-        <span class="chip">Strategic Thinking</span>
-      </div>
-    </div>
+  <div class="skill-filter rv">
+    <button class="chip on" data-filter="all">Everything</button>
+    <button class="chip" data-filter="commercial">Commercial</button>
+    <button class="chip" data-filter="strategy">Strategy</button>
+    <button class="chip" data-filter="analytics">Analytics & Tools</button>
+  </div>
 
-    <div class="capability-group reveal">
-      <h3>Marketing & Technology</h3>
-      <div class="chips">
-        <span class="chip">Digital Marketing</span>
-        <span class="chip">Product Marketing</span>
-        <span class="chip">AI & Automation</span>
-        <span class="chip">Healthcare Technology</span>
-        <span class="chip">Business Communication</span>
-        <span class="chip">Commercial Coordination</span>
-      </div>
-    </div>
+  <div class="skill-grid rv">
+
+    <div class="skill" data-type="commercial">B2B business development<i>↗</i></div>
+    <div class="skill" data-type="commercial">Lead generation<i>↗</i></div>
+    <div class="skill" data-type="commercial">Client presentations<i>↗</i></div>
+    <div class="skill" data-type="commercial">Partnership building<i>↗</i></div>
+    <div class="skill" data-type="commercial">Stakeholder management<i>↗</i></div>
+    <div class="skill" data-type="commercial">Vendor negotiation<i>↗</i></div>
+    <div class="skill" data-type="commercial">Pre-sales coordination<i>↗</i></div>
+    <div class="skill" data-type="commercial">Sales enablement<i>↗</i></div>
+    <div class="skill" data-type="commercial">Commercial coordination<i>↗</i></div>
+
+    <div class="skill" data-type="strategy">Market research<i>↗</i></div>
+    <div class="skill" data-type="strategy">Competitor analysis<i>↗</i></div>
+    <div class="skill" data-type="strategy">Business model thinking<i>↗</i></div>
+    <div class="skill" data-type="strategy">Partnership strategy<i>↗</i></div>
+
+    <div class="skill" data-type="analytics">Power BI<i>↗</i></div>
+    <div class="skill" data-type="analytics">Tableau<i>↗</i></div>
+    <div class="skill" data-type="analytics">Google Analytics<i>↗</i></div>
+    <div class="skill" data-type="analytics">MS Office<i>↗</i></div>
 
   </div>
-</section>
 
-<!-- CERTIFICATIONS AND LANGUAGES -->
-
-<section id="credentials">
-  <div class="eyebrow reveal">07 / Continuous learning</div>
-  <h2 class="section-heading reveal">Knowledge &<br><span class="accent">perspective.</span></h2>
+  <!-- CERTIFICATIONS AND LANGUAGES -->
 
   <div class="info-columns">
 
-    <div class="reveal">
-      <h3>Certifications</h3>
+    <div class="rv">
+      <h3>Certifications.</h3>
 
-      <div class="certificate">
-        <strong>AI Accelerator Course</strong><br>
-        Six-month programme · In progress
-      </div>
+      <div class="certificates">
 
-      <div class="certificate">
-        <strong>NPTEL — Market Research and Analysis</strong><br>
-        All India Topper in the Course · 2025
-      </div>
+        <div class="certificate">
+          <b>AI Accelerator Course</b>
+          <span>In progress</span>
+        </div>
 
-      <div class="certificate">
-        <strong>NPTEL — Innovation, Business Model and Entrepreneurship</strong><br>
-        Elite · 2025
-      </div>
+        <div class="certificate">
+          <b>NPTEL — Market Research and Analysis (All India Topper)</b>
+          <span>2025</span>
+        </div>
 
-      <div class="certificate">
-        <strong>Excel and Statistics</strong><br>
-        Udemy · 2024
+        <div class="certificate">
+          <b>NPTEL — Innovation, Business Model and Entrepreneurship (Elite)</b>
+          <span>2025</span>
+        </div>
+
+        <div class="certificate">
+          <b>Excel and Statistics — Udemy</b>
+          <span>2024</span>
+        </div>
+
       </div>
     </div>
 
-    <div class="reveal">
-      <h3>Languages</h3>
+    <div class="rv">
+      <h3>Languages.</h3>
 
-      <div class="language">
-        <span>Malayalam</span>
-        <span>Native</span>
-      </div>
+      <div class="language-list">
 
-      <div class="language">
-        <span>English</span>
-        <span>Professional</span>
-      </div>
+        <div class="language">
+          <span>Malayalam</span>
+          <span>Native</span>
+        </div>
 
-      <div class="language">
-        <span>Hindi</span>
-        <span>Professional</span>
-      </div>
+        <div class="language">
+          <span>English</span>
+          <span>Professional</span>
+        </div>
 
-      <div class="language">
-        <span>Tamil</span>
-        <span>Basic conversational</span>
+        <div class="language">
+          <span>Hindi</span>
+          <span>Professional</span>
+        </div>
+
+        <div class="language">
+          <span>Tamil</span>
+          <span>Basic conversational</span>
+        </div>
+
       </div>
     </div>
 
   </div>
+
+</div>
 </section>
 
 <!-- CONTACT -->
 
 <section class="contact" id="contact">
-  <div class="eyebrow reveal">08 / Get in touch</div>
+<div class="w">
 
-  <h2 class="reveal">Let's create<br><span class="accent">something meaningful.</span></h2>
+  <div class="eyebrow rv">Let's connect</div>
 
-  <p class="reveal">
-    Interested in business growth, technology, partnerships or an opportunity to collaborate? I'd be glad to connect.
+  <h2 class="rv">
+    Let's create something <em>meaningful.</em>
+  </h2>
+
+  <p class="rv">
+    Interested in business growth, technology, partnerships or new opportunities? I'd be happy to connect.
   </p>
 
-  <div class="contact-links reveal">
-    <a href="mailto:rosemary27062001@gmail.com">Email ↗</a>
-    <a href="https://linkedin.com/in/rose-mary-a0a037282" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a href="Rose_Mary_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
-  </div>
-</section>
+  <a class="contact-circle rv" href="mailto:rosemary27062001@gmail.com?subject=Hello%20Rose%20Mary">
+    Say hello ↗
+  </a>
 
-<footer>
-  © 2026 ROSE MARY · BUILT WITH CURIOSITY
-</footer>
+  <div class="contact-links rv">
+    <a href="mailto:rosemary27062001@gmail.com">rosemary27062001@gmail.com</a>
+    <button id="copy" type="button">Copy email</button>
+    <a href="https://linkedin.com/in/rose-mary-a0a037282" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+  </div>
+
+</div>
+</section>
 
 </main>
 
+<footer>
+  © <span id="yr">2026</span> ROSE MARY · MADE WITH INTENTION
+</footer>
+
 <script>
-/* THEME TOGGLE */
+(() => {
+  "use strict";
 
-const themeToggle = document.getElementById('themeToggle');
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+  const root = document.documentElement;
 
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light');
+  root.classList.add("js");
 
-  const isLight = document.body.classList.contains('light');
-  themeToggle.textContent = isLight ? 'DARK MODE' : 'LIGHT MODE';
-});
+  // Current year
+  $("#yr").textContent = new Date().getFullYear();
 
-/* ABOUT TABS */
+  // Theme switch
+  const mode = $("#mode");
 
-const tabContent = {
-  mindset: `
-    <p>
-      I enjoy understanding how businesses work, why customers make decisions and how technology can solve real-world problems. I am naturally curious, analytical and interested in learning across disciplines.
-    </p>
-  `,
-  approach: `
-    <p>
-      I approach problems with curiosity and structure. I value clear communication, practical execution and collaboration, while remaining open to learning from different perspectives.
-    </p>
-  `,
-  interests: `
-    <p>
-      My interests include B2B technology, AI and automation, healthcare innovation, business strategy, marketing and entrepreneurship. Outside work, I enjoy collecting stamps and coins.
-    </p>
-  `
-};
-
-const tabs = document.querySelectorAll('.about-tab');
-const aboutContent = document.getElementById('aboutContent');
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(item => item.classList.remove('active'));
-    tab.classList.add('active');
-
-    aboutContent.innerHTML = tabContent[tab.dataset.tab];
-  });
-});
-
-/* SCROLL PROGRESS */
-
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
-
-  document.getElementById('progress').style.width = progress + '%';
-});
-
-/* REVEAL ANIMATIONS */
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+  try {
+    const saved = localStorage.getItem("rm-theme");
+    if (saved === "paper" || saved === "dark") {
+      root.dataset.theme = saved;
     }
+  } catch(e) {}
+
+  function syncTheme() {
+    mode.textContent =
+      root.dataset.theme === "paper" ? "Dark" : "Paper";
+  }
+
+  syncTheme();
+
+  mode.addEventListener("click", () => {
+    root.dataset.theme =
+      root.dataset.theme === "paper" ? "dark" : "paper";
+
+    try {
+      localStorage.setItem("rm-theme", root.dataset.theme);
+    } catch(e) {}
+
+    syncTheme();
   });
-}, {
-  threshold:0.12
-});
 
-document.querySelectorAll('.reveal').forEach(element => {
-  observer.observe(element);
-});
+  // Scroll progress and timeline progress
+  const progress = $("#progress");
+  const timeline = $("#timeline");
+  let ticking = false;
 
-/* ACTIVE NAVIGATION */
+  function updateScroll() {
+    const total = root.scrollHeight - innerHeight;
 
-const sections = document.querySelectorAll('main section[id]');
-const navLinks = document.querySelectorAll('.side-nav a');
+    progress.style.transform =
+      `scaleY(${total > 0 ? scrollY / total : 0})`;
 
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        link.classList.toggle(
-          'active',
-          link.getAttribute('href') === '#' + entry.target.id
-        );
+    if (timeline) {
+      const rect = timeline.getBoundingClientRect();
+
+      const value = rect.height > 0
+        ? Math.min(
+            Math.max((innerHeight * .65 - rect.top) / rect.height, 0),
+            1
+          )
+        : 0;
+
+      timeline.style.setProperty("--p", (value * 100) + "%");
+    }
+
+    ticking = false;
+  }
+
+  addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(updateScroll);
+      ticking = true;
+    }
+  }, {passive:true});
+
+  addEventListener("resize", updateScroll);
+  updateScroll();
+
+  // Active navigation
+  const navLinks = $$(".rail nav a");
+
+  if ("IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        navLinks.forEach(link => {
+          link.classList.toggle(
+            "on",
+            link.hash === "#" + entry.target.id
+          );
+        });
       });
+    }, {rootMargin:"-45% 0px -50% 0px"});
+
+    $$("main section[id]").forEach(section => {
+      sectionObserver.observe(section);
+    });
+  }
+
+  // Reveal animations
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("in");
+        revealObserver.unobserve(entry.target);
+      });
+    }, {threshold:.08});
+
+    $$(".rv").forEach(element => {
+      revealObserver.observe(element);
+    });
+  } else {
+    $$(".rv").forEach(element => element.classList.add("in"));
+  }
+
+  // Interactive About tabs
+  const aboutContent = {
+    background: {
+      title: "From science to business.",
+      text: "With a Master's in Zoology and a PGDM in Management, I bring an analytical perspective to business development, commercial coordination and stakeholder relationships.",
+      facts: [
+        ["01","Science background"],
+        ["02","PGDM · 2026"],
+        ["03","Business growth"]
+      ]
+    },
+
+    approach: {
+      title: "People. Possibilities. Progress.",
+      text: "I enjoy understanding business challenges, connecting with stakeholders and turning discussions into actionable outcomes. My approach combines structured thinking, curiosity and relationship-building.",
+      facts: [
+        ["01","Relationship-first"],
+        ["02","Problem-solving"],
+        ["03","Execution"]
+      ]
+    },
+
+    interests: {
+      title: "Where curiosity takes me.",
+      text: "I am particularly interested in B2B technology sales, AI-enabled solutions, automation, healthcare technology, partnerships and emerging business models.",
+      facts: [
+        ["01","AI & Automation"],
+        ["02","Technology"],
+        ["03","Commercial strategy"]
+      ]
+    }
+  };
+
+  const tabs = $$(".about-tab");
+  const panel = $("#aboutPanel");
+
+  function showAbout(key) {
+    const item = aboutContent[key];
+    if (!item) return;
+
+    tabs.forEach(tab => {
+      const active = tab.dataset.about === key;
+      tab.classList.toggle("active", active);
+      tab.setAttribute("aria-selected", String(active));
+    });
+
+    panel.innerHTML = `
+      <h3>${item.title}</h3>
+      <p>${item.text}</p>
+      <div class="about-facts">
+        ${item.facts.map(fact =>
+          `<span class="fact"><b>${fact[0]}</b> ${fact[1]}</span>`
+        ).join("")}
+      </div>
+    `;
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      showAbout(tab.dataset.about);
+    });
+  });
+
+  // Skills filters
+  const chips = $$(".chip");
+  const skills = $$(".skill");
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const filter = chip.dataset.filter;
+
+      chips.forEach(button => button.classList.remove("on"));
+      chip.classList.add("on");
+
+      skills.forEach(skill => {
+        const matches =
+          filter === "all" || skill.dataset.type === filter;
+
+        skill.classList.toggle("hidden", !matches);
+      });
+    });
+  });
+
+  // Copy email
+  const copyButton = $("#copy");
+  const email = "rosemary27062001@gmail.com";
+
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      copyButton.textContent = "Copied!";
+
+      setTimeout(() => {
+        copyButton.textContent = "Copy email";
+      }, 2000);
+
+    } catch(e) {
+      const input = document.createElement("textarea");
+      input.value = email;
+      document.body.appendChild(input);
+      input.select();
+
+      let copied = false;
+
+      try {
+        copied = document.execCommand("copy");
+      } catch(error) {}
+
+      input.remove();
+      copyButton.textContent = copied ? "Copied!" : "Copy unavailable";
+
+      setTimeout(() => {
+        copyButton.textContent = "Copy email";
+      }, 2000);
     }
   });
-}, {
-  rootMargin:'-35% 0px -55% 0px'
-});
 
-sections.forEach(section => navObserver.observe(section));
+})();
 </script>
 
 </body>
